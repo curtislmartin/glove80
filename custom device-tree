@@ -1,11 +1,11 @@
-//////////////////////////////////////////////////////////////////////////
+// Currently using the latest firmware//////////////////////////////////////////////////////////////////////////
 //
 // Mouse keys (keyboard mouse control) requires v24.12 firmware or newer:
 // override the "HID_POINTING" setting to "y" in Advanced Configuration
 // and then select "v24.12" firmware from the drop-down menu located at
 // Glove80 Layout Editor > Settings > Advanced Settings > Firmware Version
 //
-// Alternatively, you can still use the older PR23 beta firmware for this:
+// Alternatively, you can still use the older PR23 beta firmware for this:n
 // select "community.pr23.mouse-keys" from the drop-down menu located at
 // Glove80 Layout Editor > Settings > Advanced Settings > Firmware Version
 //
