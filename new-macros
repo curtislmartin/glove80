@@ -1,7 +1,7 @@
 // near macros {
 
 
- //
+    //
     // Tab, App & Window Switcher
     //
     tab_switcher_tap: tab_switcher_tap {
