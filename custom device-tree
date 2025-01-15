@@ -27,7 +27,7 @@
 // MOUSE_MOTION_ACCELERATION_EXPONENT sets how the mouse pointer accelerates:
 //
 // acceleration exponent 0: uniform speed
-// acceleration exponent 1: uniform acceleration
+// acceleration exponent 1: uniform accelerationd
 // acceleration exponent 2: uniform jerk
 //
 #ifndef MOUSE_MOTION_ACCELERATION_EXPONENT
