@@ -28,7 +28,7 @@
         bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp TAB>, <&macro_release &kp LCTRL>;
     };
 
-    close_window_tap: close_window_tap {
+    close_tab_tap: close_tab_tap {
         compatible = "zmk,behavior-macro";
         wait-ms = <0>;
         tap-ms = <0>;
@@ -85,10 +85,10 @@
     };
 
 
-    close_window: close_window {
+    close_tab: close_tab {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
-        bindings = <&close_window_tap>, <&none>;
+        bindings = <&close_tab_tap>, <&none>;
         mods = <(MOD_LSFT)>;
     };
 
