@@ -3411,6 +3411,23 @@ macros {
         #binding-cells = <0>;
         bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp TAB>, <&macro_release &kp LCTRL>;
     };
+
+    close_window_tap: close_window_tap {
+        compatible = "zmk,behavior-macro";
+        wait-ms = <0>;
+        tap-ms = <0>;
+        #binding-cells = <0>;
+        bindings = <&macro_press &kp LGUI>, <&macro_tap &kp W>, <&macro_release &kp LGUI>;
+    };
+
+    quit_app_tap: quit_app_tap {
+        compatible = "zmk,behavior-macro";
+        wait-ms = <0>;
+        tap-ms = <0>;
+        #binding-cells = <0>;
+        bindings = <&macro_press &kp LGUI>, <&macro_tap &kp Q>, <&macro_release &kp LGUI>;
+    };
+
         // Then define the hold behaviors
     mod_window: mod_window {
         compatible = "zmk,behavior-macro-one-param";
@@ -3449,6 +3466,19 @@ macros {
         mods = <(MOD_LSFT)>;
     };
 
+    close_window: close_window {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&close_window_tap>, <&none>;
+        mods = <(MOD_LSFT)>;
+    };
+
+    quit_app: quit_app {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&quit_app_tap>, <&none>;
+        mods = <(MOD_LSFT)>;
+    };
 
   //
   // Linux Magic System Request Key - hold this down and type REISUB
