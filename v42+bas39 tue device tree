@@ -1,14 +1,16 @@
-// Must use community pr 36
+#define ENABLE_MOUSE_KEYS
+#define INDEX_HOLDING_TIME 190 // plum blossom
+
 // NOTE: Use the many #define settings below to customize this keymap!
-#define ENABLE_MOUSE_KEYS  // requires v24.12-beta or newer firmware
-#define NATURAL_SCROLLING  // supports "natural scrolling" in macOS
 #define OPERATING_SYSTEM 'M' // choose 'L'inux, 'M'acOS, or 'W'indows
-#define DIFFICULTY_LEVEL  4  // 0:custom, 1:easy -> 5:hard (see below)
+#define DIFFICULTY_LEVEL  0  // 0:custom, 1:easy -> 5:hard (see below)
 #define ENFORCE_BILATERAL    // cancels single-handed home row mod+tap
-#define SPACE_FORGIVENESS    // allow lingering taps on the space bar
+//#define SPACE_FORGIVENESS  // allow lingering taps on the space bar
 //#define THUMB_FORGIVENESS  // allow lingering taps on the thumb keys
 //#define SHIFT_FORGIVENESS  // requires v24.08-beta or newer firmware
-#define WORLD_USE_COMPOSE    // use native Compose in place of Unicode
+//#define ENABLE_MOUSE_KEYS  // requires v24.12-beta or newer firmware
+//#define NATURAL_SCROLLING  // supports "natural scrolling" in macOS
+//#define WORLD_USE_COMPOSE  // use native Compose in place of Unicode
 //#define WORLD_HOST_AZERTY  // host computer is set to AZERTY locale
 //#define WORLD_SHIFT_NUMBER // apply Shift to type number row digits
 // TIP: Add more setting overrides here instead of editing them below.
@@ -54,6 +56,7 @@
   #define _HOME   _C(LEFT)
   #define _END    _C(RIGHT)
   #define _EMOJI  LG(LC(SPACE))
+  #define _FILES  LS(LA(M))
 #else
   #define _C      LC
   #define _A_TAB  LALT
@@ -64,6 +67,7 @@
   #define _HOME   HOME
   #define _END    END
   #define _EMOJI  LG(DOT)
+  #define _FILES  LG(E)
 #endif
 #define _SLEEP      C_SLEEP
 #if OPERATING_SYSTEM == 'W'
@@ -128,17 +132,17 @@
 // Keymap specific knowledge of the base layer's alpha + ZMK layout
 //
 #if defined(LAYER_Enthium) && LAYER_Enthium == 0
-#define KEY_LH_C6R1 HOME
-#define KEY_LH_C5R1 END
-#define KEY_LH_C4R1 A
-#define KEY_LH_C3R1 B
-#define KEY_LH_C2R1 C
-#define KEY_RH_C2R1 D
-#define KEY_RH_C3R1 E
-#define KEY_RH_C4R1 F
-#define KEY_RH_C5R1 LEFT
-#define KEY_RH_C6R1 RIGHT
-#define KEY_LH_C6R2 PG_UP
+#define KEY_LH_C6R1 0
+#define KEY_LH_C5R1 0
+#define KEY_LH_C4R1 0
+#define KEY_LH_C3R1 0
+#define KEY_LH_C2R1 0
+#define KEY_RH_C2R1 0
+#define KEY_RH_C3R1 0
+#define KEY_RH_C4R1 0
+#define KEY_RH_C5R1 0
+#define KEY_RH_C6R1 0
+#define KEY_LH_C6R2 0
 #define KEY_LH_C5R2 N1
 #define KEY_LH_C4R2 N2
 #define KEY_LH_C3R2 N3
@@ -149,9 +153,9 @@
 #define KEY_RH_C3R2 N8
 #define KEY_RH_C4R2 N9
 #define KEY_RH_C5R2 N0
-#define KEY_RH_C6R2 UP
-#define KEY_LH_C6R3 PG_DN
-#define KEY_LH_C5R3 B
+#define KEY_RH_C6R2 0
+#define KEY_LH_C6R3 0
+#define KEY_LH_C5R3 Q
 #define KEY_LH_C4R3 Y
 #define KEY_LH_C3R3 O
 #define KEY_LH_C2R3 U
@@ -160,9 +164,9 @@
 #define KEY_RH_C2R3 L
 #define KEY_RH_C3R3 D
 #define KEY_RH_C4R3 W
-#define KEY_RH_C5R3 V
-#define KEY_RH_C6R3 DOWN
-#define KEY_LH_C6R4 Z
+#define KEY_RH_C5R3 Z
+#define KEY_RH_C6R3 0
+#define KEY_LH_C6R4 B
 #define KEY_LH_C5R4 C
 #define KEY_LH_C4R4 I
 #define KEY_LH_C3R4 E
@@ -173,54 +177,54 @@
 #define KEY_RH_C3R4 T
 #define KEY_RH_C4R4 N
 #define KEY_RH_C5R4 S
-#define KEY_RH_C6R4 Q
-#define KEY_LH_C6R5 LSFT
+#define KEY_RH_C6R4 V
+#define KEY_LH_C6R5 0
 #define KEY_LH_C5R5 SQT
 #define KEY_LH_C4R5 MINUS
 #define KEY_LH_C3R5 EQUAL
 #define KEY_LH_C2R5 DOT
 #define KEY_LH_C1R5 FSLH
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 INSERT
-#define KEY_LH_T3 0
+#define KEY_LH_T2 LPAR
+#define KEY_LH_T3 RPAR
 #define KEY_RH_T3 0
-#define KEY_RH_T2 DELETE
+#define KEY_RH_T2 LGUI
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 J
 #define KEY_RH_C2R5 M
 #define KEY_RH_C3R5 G
 #define KEY_RH_C4R5 P
 #define KEY_RH_C5R5 F
-#define KEY_RH_C6R5 RSFT
+#define KEY_RH_C6R5 0
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 GRAVE
+#define KEY_LH_C5R6 BSLH
 #define KEY_LH_C4R6 LBKT
 #define KEY_LH_C3R6 RBKT
-#define KEY_LH_C2R6 LSFT
+#define KEY_LH_C2R6 GRAVE
 #define KEY_LH_T4 SPACE
 #define KEY_LH_T5 TAB
-#define KEY_LH_T6 0
-#define KEY_RH_T6 0
+#define KEY_LH_T6 INSERT
+#define KEY_RH_T6 DELETE
 #define KEY_RH_T5 BACKSPACE
 #define KEY_RH_T4 R
-#define KEY_RH_C2R6 RSFT
-#define KEY_RH_C3R6 LPAR
-#define KEY_RH_C4R6 RPAR
-#define KEY_RH_C5R6 BSLH
+#define KEY_RH_C2R6 PAGE_UP
+#define KEY_RH_C3R6 0
+#define KEY_RH_C4R6 0
+#define KEY_RH_C5R6 PG_DN
 #define KEY_RH_C6R6 0
 #endif
 #if defined(LAYER_Engrammer) && LAYER_Engrammer == 0
-#define KEY_LH_C6R1 UP
-#define KEY_LH_C5R1 DOWN
-#define KEY_LH_C4R1 A
-#define KEY_LH_C3R1 B
-#define KEY_LH_C2R1 C
-#define KEY_RH_C2R1 D
-#define KEY_RH_C3R1 E
-#define KEY_RH_C4R1 F
-#define KEY_RH_C5R1 LEFT
-#define KEY_RH_C6R1 RIGHT
-#define KEY_LH_C6R2 EQUAL
+#define KEY_LH_C6R1 0
+#define KEY_LH_C5R1 0
+#define KEY_LH_C4R1 0
+#define KEY_LH_C3R1 0
+#define KEY_LH_C2R1 0
+#define KEY_RH_C2R1 0
+#define KEY_RH_C3R1 0
+#define KEY_RH_C4R1 0
+#define KEY_RH_C5R1 0
+#define KEY_RH_C6R1 0
+#define KEY_LH_C6R2 0
 #define KEY_LH_C5R2 N1
 #define KEY_LH_C4R2 N2
 #define KEY_LH_C3R2 N3
@@ -231,8 +235,8 @@
 #define KEY_RH_C3R2 N8
 #define KEY_RH_C4R2 N9
 #define KEY_RH_C5R2 N0
-#define KEY_RH_C6R2 BSLH
-#define KEY_LH_C6R3 GRAVE
+#define KEY_RH_C6R2 0
+#define KEY_LH_C6R3 0
 #define KEY_LH_C5R3 B
 #define KEY_LH_C4R3 Y
 #define KEY_LH_C3R3 O
@@ -244,7 +248,7 @@
 #define KEY_RH_C4R3 W
 #define KEY_RH_C5R3 V
 #define KEY_RH_C6R3 Z
-#define KEY_LH_C6R4 Z
+#define KEY_LH_C6R4 EQUAL
 #define KEY_LH_C5R4 C
 #define KEY_LH_C4R4 I
 #define KEY_LH_C3R4 E
@@ -256,53 +260,53 @@
 #define KEY_RH_C4R4 S
 #define KEY_RH_C5R4 N
 #define KEY_RH_C6R4 Q
-#define KEY_LH_C6R5 LSFT
+#define KEY_LH_C6R5 GRAVE
 #define KEY_LH_C5R5 G
 #define KEY_LH_C4R5 X
 #define KEY_LH_C3R5 J
 #define KEY_LH_C2R5 K
 #define KEY_LH_C1R5 MINUS
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 K_APP
+#define KEY_LH_T2 0
 #define KEY_LH_T3 0
 #define KEY_RH_T3 0
-#define KEY_RH_T2 INSERT
+#define KEY_RH_T2 0
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 FSLH
 #define KEY_RH_C2R5 R
 #define KEY_RH_C3R5 M
 #define KEY_RH_C4R5 F
 #define KEY_RH_C5R5 P
-#define KEY_RH_C6R5 RSFT
+#define KEY_RH_C6R5 BSLH
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 GRAVE
-#define KEY_LH_C4R6 LBKT
-#define KEY_LH_C3R6 RBKT
-#define KEY_LH_C2R6 LSFT
+#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C4R6 LPAR
+#define KEY_LH_C3R6 RPAR
+#define KEY_LH_C2R6 RBKT
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
 #define KEY_LH_T6 0
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 RSFT
-#define KEY_RH_C3R6 LPAR
-#define KEY_RH_C4R6 RPAR
-#define KEY_RH_C5R6 BSLH
+#define KEY_RH_C2R6 HOME
+#define KEY_RH_C3R6 PG_UP
+#define KEY_RH_C4R6 PG_DN
+#define KEY_RH_C5R6 END
 #define KEY_RH_C6R6 0
 #endif
 #if defined(LAYER_Engram) && LAYER_Engram == 0
-#define KEY_LH_C6R1 UP
-#define KEY_LH_C5R1 DOWN
-#define KEY_LH_C4R1 A
-#define KEY_LH_C3R1 B
-#define KEY_LH_C2R1 C
-#define KEY_RH_C2R1 D
-#define KEY_RH_C3R1 E
-#define KEY_RH_C4R1 F
-#define KEY_RH_C5R1 LEFT
-#define KEY_RH_C6R1 RIGHT
-#define KEY_LH_C6R2 LBKT
+#define KEY_LH_C6R1 0
+#define KEY_LH_C5R1 0
+#define KEY_LH_C4R1 0
+#define KEY_LH_C3R1 0
+#define KEY_LH_C2R1 0
+#define KEY_RH_C2R1 0
+#define KEY_RH_C3R1 0
+#define KEY_RH_C4R1 0
+#define KEY_RH_C5R1 0
+#define KEY_RH_C6R1 0
+#define KEY_LH_C6R2 0
 #define KEY_LH_C5R2 N1
 #define KEY_LH_C4R2 N2
 #define KEY_LH_C3R2 N3
@@ -313,8 +317,8 @@
 #define KEY_RH_C3R2 N8
 #define KEY_RH_C4R2 N9
 #define KEY_RH_C5R2 N0
-#define KEY_RH_C6R2 RBKT
-#define KEY_LH_C6R3 HASH
+#define KEY_RH_C6R2 0
+#define KEY_LH_C6R3 0
 #define KEY_LH_C5R3 B
 #define KEY_LH_C4R3 Y
 #define KEY_LH_C3R3 O
@@ -326,7 +330,7 @@
 #define KEY_RH_C4R3 W
 #define KEY_RH_C5R3 V
 #define KEY_RH_C6R3 Z
-#define KEY_LH_C6R4 Z
+#define KEY_LH_C6R4 HASH
 #define KEY_LH_C5R4 C
 #define KEY_LH_C4R4 I
 #define KEY_LH_C3R4 E
@@ -338,53 +342,53 @@
 #define KEY_RH_C4R4 S
 #define KEY_RH_C5R4 N
 #define KEY_RH_C6R4 Q
-#define KEY_LH_C6R5 LSFT
+#define KEY_LH_C6R5 AT
 #define KEY_LH_C5R5 G
 #define KEY_LH_C4R5 X
 #define KEY_LH_C3R5 J
 #define KEY_LH_C2R5 K
 #define KEY_LH_C1R5 MINUS
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 K_APP
+#define KEY_LH_T2 0
 #define KEY_LH_T3 0
 #define KEY_RH_T3 0
-#define KEY_RH_T2 INSERT
+#define KEY_RH_T2 0
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 QMARK
 #define KEY_RH_C2R5 R
 #define KEY_RH_C3R5 M
 #define KEY_RH_C4R5 F
 #define KEY_RH_C5R5 P
-#define KEY_RH_C6R5 RSFT
+#define KEY_RH_C6R5 FSLH
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 AT
-#define KEY_LH_C4R6 LBKT
-#define KEY_LH_C3R6 RBKT
-#define KEY_LH_C2R6 LSFT
+#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C4R6 LPAR
+#define KEY_LH_C3R6 RPAR
+#define KEY_LH_C2R6 RBKT
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
 #define KEY_LH_T6 0
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 RSFT
-#define KEY_RH_C3R6 LPAR
-#define KEY_RH_C4R6 RPAR
-#define KEY_RH_C5R6 FSLH
+#define KEY_RH_C2R6 HOME
+#define KEY_RH_C3R6 PG_UP
+#define KEY_RH_C4R6 PG_DN
+#define KEY_RH_C5R6 END
 #define KEY_RH_C6R6 0
 #endif
 #if defined(LAYER_Dvorak) && LAYER_Dvorak == 0
-#define KEY_LH_C6R1 UP
-#define KEY_LH_C5R1 DOWN
-#define KEY_LH_C4R1 A
-#define KEY_LH_C3R1 B
-#define KEY_LH_C2R1 C
-#define KEY_RH_C2R1 D
-#define KEY_RH_C3R1 E
-#define KEY_RH_C4R1 F
-#define KEY_RH_C5R1 LEFT
-#define KEY_RH_C6R1 RIGHT
-#define KEY_LH_C6R2 EQUAL
+#define KEY_LH_C6R1 0
+#define KEY_LH_C5R1 0
+#define KEY_LH_C4R1 0
+#define KEY_LH_C3R1 0
+#define KEY_LH_C2R1 0
+#define KEY_RH_C2R1 0
+#define KEY_RH_C3R1 0
+#define KEY_RH_C4R1 0
+#define KEY_RH_C5R1 0
+#define KEY_RH_C6R1 0
+#define KEY_LH_C6R2 0
 #define KEY_LH_C5R2 N1
 #define KEY_LH_C4R2 N2
 #define KEY_LH_C3R2 N3
@@ -395,8 +399,8 @@
 #define KEY_RH_C3R2 N8
 #define KEY_RH_C4R2 N9
 #define KEY_RH_C5R2 N0
-#define KEY_RH_C6R2 BSLH
-#define KEY_LH_C6R3 TAB
+#define KEY_RH_C6R2 0
+#define KEY_LH_C6R3 0
 #define KEY_LH_C5R3 SQT
 #define KEY_LH_C4R3 COMMA
 #define KEY_LH_C3R3 DOT
@@ -408,7 +412,7 @@
 #define KEY_RH_C4R3 R
 #define KEY_RH_C5R3 L
 #define KEY_RH_C6R3 SLASH
-#define KEY_LH_C6R4 CAPS
+#define KEY_LH_C6R4 EQUAL
 #define KEY_LH_C5R4 A
 #define KEY_LH_C4R4 O
 #define KEY_LH_C3R4 E
@@ -420,53 +424,53 @@
 #define KEY_RH_C4R4 N
 #define KEY_RH_C5R4 S
 #define KEY_RH_C6R4 MINUS
-#define KEY_LH_C6R5 LSFT
+#define KEY_LH_C6R5 GRAVE
 #define KEY_LH_C5R5 SEMI
 #define KEY_LH_C4R5 Q
 #define KEY_LH_C3R5 J
 #define KEY_LH_C2R5 K
 #define KEY_LH_C1R5 X
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 K_APP
+#define KEY_LH_T2 0
 #define KEY_LH_T3 0
 #define KEY_RH_T3 0
-#define KEY_RH_T2 INSERT
+#define KEY_RH_T2 0
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 B
 #define KEY_RH_C2R5 M
 #define KEY_RH_C3R5 W
 #define KEY_RH_C4R5 V
 #define KEY_RH_C5R5 Z
-#define KEY_RH_C6R5 RSFT
+#define KEY_RH_C6R5 BSLH
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 GRAVE
-#define KEY_LH_C4R6 LBKT
-#define KEY_LH_C3R6 RBKT
-#define KEY_LH_C2R6 LSFT
+#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C4R6 LPAR
+#define KEY_LH_C3R6 RPAR
+#define KEY_LH_C2R6 RBKT
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
 #define KEY_LH_T6 0
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 RSFT
-#define KEY_RH_C3R6 LPAR
-#define KEY_RH_C4R6 RPAR
-#define KEY_RH_C5R6 BSLH
+#define KEY_RH_C2R6 HOME
+#define KEY_RH_C3R6 PG_UP
+#define KEY_RH_C4R6 PG_DN
+#define KEY_RH_C5R6 END
 #define KEY_RH_C6R6 0
 #endif
 #if defined(LAYER_Colemak) && LAYER_Colemak == 0
-#define KEY_LH_C6R1 UP
-#define KEY_LH_C5R1 DOWN
-#define KEY_LH_C4R1 A
-#define KEY_LH_C3R1 B
-#define KEY_LH_C2R1 C
-#define KEY_RH_C2R1 D
-#define KEY_RH_C3R1 E
-#define KEY_RH_C4R1 F
-#define KEY_RH_C5R1 LEFT
-#define KEY_RH_C6R1 RIGHT
-#define KEY_LH_C6R2 EQUAL
+#define KEY_LH_C6R1 0
+#define KEY_LH_C5R1 0
+#define KEY_LH_C4R1 0
+#define KEY_LH_C3R1 0
+#define KEY_LH_C2R1 0
+#define KEY_RH_C2R1 0
+#define KEY_RH_C3R1 0
+#define KEY_RH_C4R1 0
+#define KEY_RH_C5R1 0
+#define KEY_RH_C6R1 0
+#define KEY_LH_C6R2 0
 #define KEY_LH_C5R2 N1
 #define KEY_LH_C4R2 N2
 #define KEY_LH_C3R2 N3
@@ -477,8 +481,8 @@
 #define KEY_RH_C3R2 N8
 #define KEY_RH_C4R2 N9
 #define KEY_RH_C5R2 N0
-#define KEY_RH_C6R2 BSLH
-#define KEY_LH_C6R3 GRAVE
+#define KEY_RH_C6R2 0
+#define KEY_LH_C6R3 0
 #define KEY_LH_C5R3 Q
 #define KEY_LH_C4R3 W
 #define KEY_LH_C3R3 F
@@ -490,7 +494,7 @@
 #define KEY_RH_C4R3 Y
 #define KEY_RH_C5R3 SEMI
 #define KEY_RH_C6R3 MINUS
-#define KEY_LH_C6R4 CAPS
+#define KEY_LH_C6R4 EQUAL
 #define KEY_LH_C5R4 A
 #define KEY_LH_C4R4 R
 #define KEY_LH_C3R4 S
@@ -502,53 +506,53 @@
 #define KEY_RH_C4R4 I
 #define KEY_RH_C5R4 O
 #define KEY_RH_C6R4 SQT
-#define KEY_LH_C6R5 LSFT
+#define KEY_LH_C6R5 GRAVE
 #define KEY_LH_C5R5 Z
 #define KEY_LH_C4R5 X
 #define KEY_LH_C3R5 C
 #define KEY_LH_C2R5 V
 #define KEY_LH_C1R5 B
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 K_APP
+#define KEY_LH_T2 0
 #define KEY_LH_T3 0
 #define KEY_RH_T3 0
-#define KEY_RH_T2 INSERT
+#define KEY_RH_T2 0
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 K
 #define KEY_RH_C2R5 M
 #define KEY_RH_C3R5 COMMA
 #define KEY_RH_C4R5 DOT
 #define KEY_RH_C5R5 FSLH
-#define KEY_RH_C6R5 RSFT
+#define KEY_RH_C6R5 BSLH
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 GRAVE
-#define KEY_LH_C4R6 LBKT
-#define KEY_LH_C3R6 RBKT
-#define KEY_LH_C2R6 LSFT
+#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C4R6 LPAR
+#define KEY_LH_C3R6 RPAR
+#define KEY_LH_C2R6 RBKT
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
 #define KEY_LH_T6 0
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 RSFT
-#define KEY_RH_C3R6 LPAR
-#define KEY_RH_C4R6 RPAR
-#define KEY_RH_C5R6 BSLH
+#define KEY_RH_C2R6 HOME
+#define KEY_RH_C3R6 PG_UP
+#define KEY_RH_C4R6 PG_DN
+#define KEY_RH_C5R6 END
 #define KEY_RH_C6R6 0
 #endif
 #if defined(LAYER_QWERTY) && LAYER_QWERTY == 0
-#define KEY_LH_C6R1 UP
-#define KEY_LH_C5R1 DOWN
-#define KEY_LH_C4R1 A
-#define KEY_LH_C3R1 B
-#define KEY_LH_C2R1 C
-#define KEY_RH_C2R1 D
-#define KEY_RH_C3R1 E
-#define KEY_RH_C4R1 F
-#define KEY_RH_C5R1 LEFT
-#define KEY_RH_C6R1 RIGHT
-#define KEY_LH_C6R2 EQUAL
+#define KEY_LH_C6R1 0
+#define KEY_LH_C5R1 0
+#define KEY_LH_C4R1 0
+#define KEY_LH_C3R1 0
+#define KEY_LH_C2R1 0
+#define KEY_RH_C2R1 0
+#define KEY_RH_C3R1 0
+#define KEY_RH_C4R1 0
+#define KEY_RH_C5R1 0
+#define KEY_RH_C6R1 0
+#define KEY_LH_C6R2 0
 #define KEY_LH_C5R2 N1
 #define KEY_LH_C4R2 N2
 #define KEY_LH_C3R2 N3
@@ -559,8 +563,8 @@
 #define KEY_RH_C3R2 N8
 #define KEY_RH_C4R2 N9
 #define KEY_RH_C5R2 N0
-#define KEY_RH_C6R2 MINUS
-#define KEY_LH_C6R3 TAB
+#define KEY_RH_C6R2 0
+#define KEY_LH_C6R3 0
 #define KEY_LH_C5R3 Q
 #define KEY_LH_C4R3 W
 #define KEY_LH_C3R3 E
@@ -571,8 +575,8 @@
 #define KEY_RH_C3R3 I
 #define KEY_RH_C4R3 O
 #define KEY_RH_C5R3 P
-#define KEY_RH_C6R3 BSLH
-#define KEY_LH_C6R4 CAPS
+#define KEY_RH_C6R3 MINUS
+#define KEY_LH_C6R4 EQUAL
 #define KEY_LH_C5R4 A
 #define KEY_LH_C4R4 S
 #define KEY_LH_C3R4 D
@@ -584,53 +588,53 @@
 #define KEY_RH_C4R4 L
 #define KEY_RH_C5R4 SEMI
 #define KEY_RH_C6R4 SQT
-#define KEY_LH_C6R5 LSFT
+#define KEY_LH_C6R5 GRAVE
 #define KEY_LH_C5R5 Z
 #define KEY_LH_C4R5 X
 #define KEY_LH_C3R5 C
 #define KEY_LH_C2R5 V
 #define KEY_LH_C1R5 B
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 K_APP
+#define KEY_LH_T2 0
 #define KEY_LH_T3 0
 #define KEY_RH_T3 0
-#define KEY_RH_T2 INSERT
+#define KEY_RH_T2 0
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 N
 #define KEY_RH_C2R5 M
 #define KEY_RH_C3R5 COMMA
 #define KEY_RH_C4R5 DOT
 #define KEY_RH_C5R5 FSLH
-#define KEY_RH_C6R5 RSFT
+#define KEY_RH_C6R5 BSLH
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 GRAVE
-#define KEY_LH_C4R6 LBKT
-#define KEY_LH_C3R6 RBKT
-#define KEY_LH_C2R6 LSFT
+#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C4R6 LPAR
+#define KEY_LH_C3R6 RPAR
+#define KEY_LH_C2R6 RBKT
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
 #define KEY_LH_T6 0
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 RSFT
-#define KEY_RH_C3R6 LPAR
-#define KEY_RH_C4R6 RPAR
-#define KEY_RH_C5R6 BSLH
+#define KEY_RH_C2R6 HOME
+#define KEY_RH_C3R6 PG_UP
+#define KEY_RH_C4R6 PG_DN
+#define KEY_RH_C5R6 END
 #define KEY_RH_C6R6 0
 #endif
 #if defined(LAYER_ColemakDH) && LAYER_ColemakDH == 0
-#define KEY_LH_C6R1 UP
-#define KEY_LH_C5R1 DOWN
-#define KEY_LH_C4R1 A
-#define KEY_LH_C3R1 B
-#define KEY_LH_C2R1 C
-#define KEY_RH_C2R1 D
-#define KEY_RH_C3R1 E
-#define KEY_RH_C4R1 F
-#define KEY_RH_C5R1 LEFT
-#define KEY_RH_C6R1 RIGHT
-#define KEY_LH_C6R2 EQUAL
+#define KEY_LH_C6R1 0
+#define KEY_LH_C5R1 0
+#define KEY_LH_C4R1 0
+#define KEY_LH_C3R1 0
+#define KEY_LH_C2R1 0
+#define KEY_RH_C2R1 0
+#define KEY_RH_C3R1 0
+#define KEY_RH_C4R1 0
+#define KEY_RH_C5R1 0
+#define KEY_RH_C6R1 0
+#define KEY_LH_C6R2 0
 #define KEY_LH_C5R2 N1
 #define KEY_LH_C4R2 N2
 #define KEY_LH_C3R2 N3
@@ -641,8 +645,8 @@
 #define KEY_RH_C3R2 N8
 #define KEY_RH_C4R2 N9
 #define KEY_RH_C5R2 N0
-#define KEY_RH_C6R2 MINUS
-#define KEY_LH_C6R3 TAB
+#define KEY_RH_C6R2 0
+#define KEY_LH_C6R3 0
 #define KEY_LH_C5R3 Q
 #define KEY_LH_C4R3 W
 #define KEY_LH_C3R3 F
@@ -653,8 +657,8 @@
 #define KEY_RH_C3R3 U
 #define KEY_RH_C4R3 Y
 #define KEY_RH_C5R3 SEMI
-#define KEY_RH_C6R3 BSLH
-#define KEY_LH_C6R4 CAPS
+#define KEY_RH_C6R3 MINUS
+#define KEY_LH_C6R4 EQUAL
 #define KEY_LH_C5R4 A
 #define KEY_LH_C4R4 R
 #define KEY_LH_C3R4 S
@@ -666,53 +670,53 @@
 #define KEY_RH_C4R4 I
 #define KEY_RH_C5R4 O
 #define KEY_RH_C6R4 SQT
-#define KEY_LH_C6R5 LSFT
+#define KEY_LH_C6R5 GRAVE
 #define KEY_LH_C5R5 Z
 #define KEY_LH_C4R5 X
 #define KEY_LH_C3R5 C
 #define KEY_LH_C2R5 D
 #define KEY_LH_C1R5 V
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 K_APP
+#define KEY_LH_T2 0
 #define KEY_LH_T3 0
 #define KEY_RH_T3 0
-#define KEY_RH_T2 INSERT
+#define KEY_RH_T2 0
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 K
 #define KEY_RH_C2R5 H
 #define KEY_RH_C3R5 COMMA
 #define KEY_RH_C4R5 DOT
 #define KEY_RH_C5R5 FSLH
-#define KEY_RH_C6R5 RSFT
+#define KEY_RH_C6R5 BSLH
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 GRAVE
-#define KEY_LH_C4R6 LBKT
-#define KEY_LH_C3R6 RBKT
-#define KEY_LH_C2R6 LSFT
+#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C4R6 LPAR
+#define KEY_LH_C3R6 RPAR
+#define KEY_LH_C2R6 RBKT
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
 #define KEY_LH_T6 0
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 RSFT
-#define KEY_RH_C3R6 LPAR
-#define KEY_RH_C4R6 RPAR
-#define KEY_RH_C5R6 BSLH
+#define KEY_RH_C2R6 HOME
+#define KEY_RH_C3R6 PG_UP
+#define KEY_RH_C4R6 PG_DN
+#define KEY_RH_C5R6 END
 #define KEY_RH_C6R6 0
 #endif
 #if defined(LAYER_Canary) && LAYER_Canary == 0
-#define KEY_LH_C6R1 UP
-#define KEY_LH_C5R1 DOWN
-#define KEY_LH_C4R1 A
-#define KEY_LH_C3R1 B
-#define KEY_LH_C2R1 C
-#define KEY_RH_C2R1 D
-#define KEY_RH_C3R1 E
-#define KEY_RH_C4R1 F
-#define KEY_RH_C5R1 LEFT
-#define KEY_RH_C6R1 RIGHT
-#define KEY_LH_C6R2 EQUAL
+#define KEY_LH_C6R1 0
+#define KEY_LH_C5R1 0
+#define KEY_LH_C4R1 0
+#define KEY_LH_C3R1 0
+#define KEY_LH_C2R1 0
+#define KEY_RH_C2R1 0
+#define KEY_RH_C3R1 0
+#define KEY_RH_C4R1 0
+#define KEY_RH_C5R1 0
+#define KEY_RH_C6R1 0
+#define KEY_LH_C6R2 0
 #define KEY_LH_C5R2 N1
 #define KEY_LH_C4R2 N2
 #define KEY_LH_C3R2 N3
@@ -723,8 +727,8 @@
 #define KEY_RH_C3R2 N8
 #define KEY_RH_C4R2 N9
 #define KEY_RH_C5R2 N0
-#define KEY_RH_C6R2 MINUS
-#define KEY_LH_C6R3 TAB
+#define KEY_RH_C6R2 0
+#define KEY_LH_C6R3 0
 #define KEY_LH_C5R3 W
 #define KEY_LH_C4R3 L
 #define KEY_LH_C3R3 Y
@@ -735,8 +739,8 @@
 #define KEY_RH_C3R3 O
 #define KEY_RH_C4R3 U
 #define KEY_RH_C5R3 SQT
-#define KEY_RH_C6R3 BSLH
-#define KEY_LH_C6R4 CAPS
+#define KEY_RH_C6R3 MINUS
+#define KEY_LH_C6R4 EQUAL
 #define KEY_LH_C5R4 C
 #define KEY_LH_C4R4 R
 #define KEY_LH_C3R4 S
@@ -748,39 +752,39 @@
 #define KEY_RH_C4R4 I
 #define KEY_RH_C5R4 A
 #define KEY_RH_C6R4 SEMI
-#define KEY_LH_C6R5 LSFT
+#define KEY_LH_C6R5 GRAVE
 #define KEY_LH_C5R5 Q
 #define KEY_LH_C4R5 J
 #define KEY_LH_C3R5 V
 #define KEY_LH_C2R5 D
 #define KEY_LH_C1R5 K
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 K_APP
+#define KEY_LH_T2 0
 #define KEY_LH_T3 0
 #define KEY_RH_T3 0
-#define KEY_RH_T2 INSERT
+#define KEY_RH_T2 0
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 X
 #define KEY_RH_C2R5 H
 #define KEY_RH_C3R5 FSLH
 #define KEY_RH_C4R5 COMMA
 #define KEY_RH_C5R5 DOT
-#define KEY_RH_C6R5 RSFT
+#define KEY_RH_C6R5 BSLH
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 GRAVE
-#define KEY_LH_C4R6 LBKT
-#define KEY_LH_C3R6 RBKT
-#define KEY_LH_C2R6 LSFT
+#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C4R6 LPAR
+#define KEY_LH_C3R6 RPAR
+#define KEY_LH_C2R6 RBKT
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
 #define KEY_LH_T6 0
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 RSFT
-#define KEY_RH_C3R6 LPAR
-#define KEY_RH_C4R6 RPAR
-#define KEY_RH_C5R6 BSLH
+#define KEY_RH_C2R6 HOME
+#define KEY_RH_C3R6 PG_UP
+#define KEY_RH_C4R6 PG_DN
+#define KEY_RH_C5R6 END
 #define KEY_RH_C6R6 0
 #endif
 
@@ -794,66 +798,122 @@ combos {
   #ifndef COMBO_FIRING_DECAY
   #define COMBO_FIRING_DECAY 50
   #endif
+
+  // T2+T5
+  #if defined(_A_TAB) && defined(LAYER_Cursor)
+  combo_alt_tab_switcher_left {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_LH_T2 POS_LH_T5>;
+    bindings = <&mod_tab_chord _A_TAB LAYER_Cursor>;
+    layers = <0 1 2 3 4 5 6 7 8>;
+  };
+  #endif
+
+  combo_hyper_right {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_RH_T2 POS_RH_T5>;
+    bindings = <&kp LG(LA(LC(LSHFT)))>;
+    layers = <0 1 2 3 4 5 6 7 8>;
+  };
+
+  // T3+T6
+  #if defined(_G_TAB) && defined(LAYER_Cursor)
+  combo_win_tab_switcher_left {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_LH_T3 POS_LH_T6>;
+    bindings = <&mod_tab_chord _G_TAB LAYER_Cursor>;
+    layers = <0 1 2 3 4 5 6 7 8>;
+  };
+  #endif
+
+  combo_ctrl_shift_right {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_RH_T3 POS_RH_T6>;
+    bindings = <&kp LC(LSHFT)>;
+    layers = <0 1 2 3 4 5 6 7 8>;
+  };
+
+  // T5+T6
+
+  combo_ctrl_tab_switcher_left {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_LH_T5 POS_LH_T6>;
+    bindings = <&mod_tab_chord LCTL LAYER_Cursor>;
+    layers = <0 1 2 3 4 5 6 7 8>;
+  };
+
+  combo_meh_right {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_RH_T5 POS_RH_T6>;
+    bindings = <&kp LA(LC(LSHFT))>;
+    layers = <0 1 2 3 4 5 6 7 8>;
+  };
+
+  // T1+T4
+
+  combo_sticky_shift_left {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_LH_T1 POS_LH_T4>;
+    bindings = <&sticky_key_modtap LSFT LSFT>;
+    layers = <0 1 2 3 4 5 6 7 8>;
+  };
+
+  combo_sticky_shift_right {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_RH_T1 POS_RH_T4>;
+    bindings = <&sticky_key_modtap RSFT RSFT>;
+    layers = <0 1 2 3 4 5 6 7 8>;
+  };
+
+  // T4+T5
+
+  combo_caps_word_left {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_LH_T4 POS_LH_T5>;
+    bindings = <&caps_word>;
+    layers = <0 1 2 3 4 5 6 7 8>;
+  };
+
+  combo_caps_word_right {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_RH_T4 POS_RH_T5>;
+    bindings = <&caps_word>;
+    layers = <0 1 2 3 4 5 6 7 8>;
+  };
+
+  // T1+T5
+
+  combo_caps_lock_left {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_LH_T1 POS_LH_T5>;
+    bindings = <&kp CAPSLOCK>;
+    layers = <0 1 2 3 4 5 6 7 8>;
+  };
+
+  combo_caps_lock_right {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_RH_T1 POS_RH_T5>;
+    bindings = <&kp CAPSLOCK>;
+    layers = <0 1 2 3 4 5 6 7 8>;
+  };
+
+  // C1R5+C2R6
   #ifdef LAYER_Gaming
   combo_gaming_layer_toggle {
     timeout-ms = <COMBO_FIRING_DECAY>;
-    key-positions = <POS_LH_T3 POS_LH_T6>;
+    key-positions = <POS_LH_C1R5 POS_LH_C2R6>;
     bindings = <&tog LAYER_Gaming>;
     layers = <0 LAYER_Gaming>;
   };
   #endif
-  #ifdef LAYER_Cursor
-  #ifdef _A_TAB
-  combo_alt_tab_switcher {
+  #ifdef LAYER_Typing
+  combo_typing_layer_toggle {
     timeout-ms = <COMBO_FIRING_DECAY>;
-    key-positions = <POS_LH_T4 POS_LH_T1>;
-    bindings = <&mod_tab_chord _A_TAB LAYER_Cursor>;
-    layers = <0 1 2 3 4 5 6 7>;
+    key-positions = <POS_RH_C1R5 POS_RH_C2R6>;
+    bindings = <&tog LAYER_Typing>;
+    layers = <0 LAYER_Typing>;
   };
   #endif
-
-  combo_ctrl_tab_switcher {
-    timeout-ms = <COMBO_FIRING_DECAY>;
-    key-positions = <POS_LH_T4 POS_LH_T5>;
-    bindings = <&mod_tab_chord LCTL LAYER_Cursor>;
-    layers = <0 1 2 3 4 5 6 7>;
-  };
-  #endif
-
-  combo_sticky_hyper_right {
-    timeout-ms = <COMBO_FIRING_DECAY>;
-    key-positions = <POS_RH_T1 POS_RH_T4>;
-    bindings = <&sk LG(LA(LC(LSHFT)))>;
-    layers = <0 1 2 3 4 5 6 7>;
-  };
-
-  combo_sticky_meh_right {
-    timeout-ms = <COMBO_FIRING_DECAY>;
-    key-positions = <POS_RH_T4 POS_RH_T5>;
-    bindings = <&sk LA(LC(LSHFT))>;
-    layers = <0 1 2 3 4 5 6 7>;
-  };
-
-  combo_sticky_AltGr_left {
-    timeout-ms = <COMBO_FIRING_DECAY>;
-    key-positions = <POS_LH_T2 POS_LH_T5>;
-    bindings = <&sk RALT>;
-    layers = <0 1 2 3 4 5 6 7>;
-  };
-
-  combo_sticky_AltGr_right {
-    timeout-ms = <COMBO_FIRING_DECAY>;
-    key-positions = <POS_RH_T2 POS_RH_T5>;
-    bindings = <&sk RALT>;
-    layers = <0 1 2 3 4 5 6 7>;
-  };
-
-  combo_caps_lock {
-    timeout-ms = <COMBO_FIRING_DECAY>;
-    key-positions = <POS_LH_T6 POS_RH_T6>;
-    bindings = <&kp CAPSLOCK>;
-    layers = <0 1 2 3 4 5 6 7>;
-  };
 
 };
 
@@ -3092,42 +3152,6 @@ behaviors {
   #define RightMiddyIndex right_middy_index_bilateral RIGHT_INDEX_MOD RIGHT_INDEX_KEY
 
   //
-  // Key repetition access keys on the index fingers
-  //
-  plain: plain_typing_layer {
-    compatible = "zmk,behavior-hold-tap";
-    flavor = PLAIN_HOLDING_TYPE;
-    tapping-term-ms = <PLAIN_HOLDING_TIME>;
-    quick-tap-ms = <PLAIN_REPEAT_DECAY>; // enable repeat
-    require-prior-idle-ms = <PLAIN_STREAK_DECAY>;
-    #binding-cells = <2>;
-    bindings = <&mo>, <&kp>;
-    retro-tap; // tap on standalone hold
-  };
-  #ifdef LAYER_Engram
-  plain_engram_COMMA: plain_typing_layer_engram_COMMA {
-    compatible = "zmk,behavior-hold-tap";
-    flavor = PLAIN_HOLDING_TYPE;
-    tapping-term-ms = <PLAIN_HOLDING_TIME>;
-    quick-tap-ms = <PLAIN_REPEAT_DECAY>; // enable repeat
-    require-prior-idle-ms = <PLAIN_STREAK_DECAY>;
-    #binding-cells = <2>;
-    bindings = <&mo>, <&engram_COMMA>;
-    retro-tap; // tap on standalone hold
-  };
-  plain_engram_DOT: plain_typing_layer_engram_DOT {
-    compatible = "zmk,behavior-hold-tap";
-    flavor = PLAIN_HOLDING_TYPE;
-    tapping-term-ms = <PLAIN_HOLDING_TIME>;
-    quick-tap-ms = <PLAIN_REPEAT_DECAY>; // enable repeat
-    require-prior-idle-ms = <PLAIN_STREAK_DECAY>;
-    #binding-cells = <2>;
-    bindings = <&mo>, <&engram_DOT>;
-    retro-tap; // tap on standalone hold
-  };
-  #endif
-
-  //
   // Thumb cluster hold-tap keys for Miryoku layers
   //
   thumb: thumb_layer_access {
@@ -3137,14 +3161,9 @@ behaviors {
     quick-tap-ms = <THUMB_REPEAT_DECAY>; // enable repeat
     #binding-cells = <2>;
     bindings = <&mo>, <&kp>;
-  };
-  thumb_parang_left: thumb_layer_access_parang_left {
-    compatible = "zmk,behavior-hold-tap";
-    flavor = THUMB_HOLDING_TYPE;
-    tapping-term-ms = <THUMB_HOLDING_TIME>;
-    quick-tap-ms = <THUMB_REPEAT_DECAY>; // enable repeat
-    #binding-cells = <2>;
-    bindings = <&mo>, <&parang_left>;
+    #ifdef THUMB_FORGIVENESS
+    retro-tap; // tap on standalone hold
+    #endif
   };
   stumb: thumb_layer_access_sticky_key_oneshot {
     compatible = "zmk,behavior-hold-tap";
@@ -3161,9 +3180,25 @@ behaviors {
     quick-tap-ms = <THUMB_REPEAT_DECAY>; // enable repeat
     #binding-cells = <2>;
     bindings = <&mo>, <&kp>;
-    #ifdef THUMB_FORGIVENESS
-    retro-tap;
-    #endif
+    retro-tap; // tap on standalone hold
+  };
+  crumb_parang_left: crumb_layer_access_parang_left {
+    compatible = "zmk,behavior-hold-tap";
+    flavor = THUMB_HOLDING_TYPE;
+    tapping-term-ms = <THUMB_HOLDING_TIME>;
+    quick-tap-ms = <THUMB_REPEAT_DECAY>; // enable repeat
+    #binding-cells = <2>;
+    bindings = <&mo>, <&parang_left>;
+    retro-tap; // tap on standalone hold
+  };
+  crumb_parang_right: crumb_layer_access_parang_right {
+    compatible = "zmk,behavior-hold-tap";
+    flavor = THUMB_HOLDING_TYPE;
+    tapping-term-ms = <THUMB_HOLDING_TIME>;
+    quick-tap-ms = <THUMB_REPEAT_DECAY>; // enable repeat
+    #binding-cells = <2>;
+    bindings = <&mo>, <&parang_right>;
+    retro-tap; // tap on standalone hold
   };
   space: thumb_layer_access_spacebar {
     compatible = "zmk,behavior-hold-tap";
@@ -3384,216 +3419,6 @@ behaviors {
 
 macros {
 
-//
-    // Tab, App & Window Switcher
-    //
-    tab_switcher_tap: tab_switcher_tap {
-        compatible = "zmk,behavior-macro";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <0>;
-        bindings = <&macro_press &kp LGUI>, <&macro_tap &kp TAB>, <&macro_release &kp LGUI>;
-    };
-
-    // Hold version for cycling through apps
-    tab_switcher_hold: tab_switcher_hold {
-        compatible = "zmk,behavior-macro";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <0>;
-        bindings =
-             <&macro_press &kp LGUI>
-            , <&macro_tap &kp TAB>
-            , <&macro_pause_for_release>
-            , <&macro_release &kp LGUI>;
-    };
-
-    window_switcher_tap: window_switcher_tap {
-        compatible = "zmk,behavior-macro";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <0>;
-        bindings = <&macro_press &kp LGUI>, <&macro_tap &kp GRAVE>, <&macro_release &kp LGUI>;
-    };
-
-    browser_tab_switcher_tap: browser_tab_switcher_tap {
-        compatible = "zmk,behavior-macro";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <0>;
-        bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp TAB>, <&macro_release &kp LCTRL>;
-    };
-
-    close_tab_tap: close_tab_tap {
-        compatible = "zmk,behavior-macro";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <0>;
-        bindings = <&macro_press &kp LGUI>, <&macro_tap &kp W>, <&macro_release &kp LGUI>;
-    };
-
-    quit_app_tap: quit_app_tap {
-        compatible = "zmk,behavior-macro";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <0>;
-        bindings = <&macro_press &kp LGUI>, <&macro_tap &kp Q>, <&macro_release &kp LGUI>;
-    };
-
-
-
-        // Then define the hold behaviors
-    mod_window: mod_window {
-        compatible = "zmk,behavior-macro-one-param";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <1>;
-        bindings
-            = <&macro_param_1to1>
-            , <&macro_press &kp MACRO_PLACEHOLDER>
-            , <&macro_tap &kp GRAVE>
-            , <&macro_pause_for_release>
-            , <&macro_param_1to1>
-            , <&macro_release &kp MACRO_PLACEHOLDER>
-            ;
-    };
-
-    // Finally define the combined behaviors
-    // Combined behavior using mod-morph
-    app_switcher: app_switcher {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&tab_switcher_tap>, <&tab_switcher_hold>;
-        mods = <(MOD_LSFT)>;  // Hold shift to cycle through apps
-    };
-
-    window_switcher: window_switcher {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&window_switcher_tap>, <&mod_window LGUI>;
-        mods = <(MOD_LSFT)>;
-    };
-
-    browser_tab_switcher: browser_tab_switcher {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&browser_tab_switcher_tap>, <&mod_tab LCTRL>;
-        mods = <(MOD_LSFT)>;
-    };
-
-
-    close_tab: close_tab {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&close_tab_tap>, <&none>;
-        mods = <(MOD_LSFT)>;
-    };
-
-    quit_app: quit_app {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&quit_app_tap>, <&none>;
-        mods = <(MOD_LSFT)>;
-    };
-
-
-    // Linux versions
-    linux_tab_switcher_tap: linux_tab_switcher_tap {
-        compatible = "zmk,behavior-macro";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <0>;
-        bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp TAB>, <&macro_release &kp LCTRL>;
-    };
-
-    linux_tab_switcher_hold: linux_tab_switcher_hold {
-        compatible = "zmk,behavior-macro";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <0>;
-        bindings =
-            <&macro_press &kp LCTRL>
-            , <&macro_tap &kp TAB>
-            , <&macro_pause_for_release>
-            , <&macro_release &kp LCTRL>;
-    };
-
-    linux_window_switcher_tap: linux_window_switcher_tap {
-        compatible = "zmk,behavior-macro";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <0>;
-        bindings = <&macro_press &kp LGUI>, <&macro_tap &kp GRAVE>, <&macro_release &kp LGUI>;
-    };
-
-    // Browser tab switcher stays the same as it uses CTRL
-    // close_tab and quit_app need LALT instead of LGUI
-    linux_close_tab_tap: linux_close_tab_tap {
-        compatible = "zmk,behavior-macro";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <0>;
-        bindings =
-            <&macro_press &kp LCTRL>
-            , <&macro_tap &kp W>
-            , <&macro_release &kp LCTRL>;
-    };
-
-    linux_quit_app_tap: linux_quit_app_tap {
-        compatible = "zmk,behavior-macro";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <0>;
-        bindings =
-            <&macro_press &kp LALT>
-            , <&macro_tap &kp F4>
-            , <&macro_release &kp LALT>;
-    };
-
-    linux_mod_window: linux_mod_window {
-        compatible = "zmk,behavior-macro-one-param";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <1>;
-        bindings
-            = <&macro_param_1to1>
-            , <&macro_press &kp MACRO_PLACEHOLDER>
-            , <&macro_tap &kp GRAVE>
-            , <&macro_pause_for_release>
-            , <&macro_param_1to1>
-            , <&macro_release &kp MACRO_PLACEHOLDER>
-            ;
-    };
-
-    // Combined behaviors for Linux
-    linux_app_switcher: linux_app_switcher {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&linux_tab_switcher_tap>, <&linux_tab_switcher_hold>;
-        mods = <(MOD_LSFT)>;
-    };
-
-    linux_window_switcher: linux_window_switcher {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&linux_window_switcher_tap>, <&linux_mod_window LGUI>;
-        mods = <(MOD_LSFT)>;
-    };
-
-    linux_close_tab: linux_close_tab {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&linux_close_tab_tap>, <&none>;
-        mods = <(MOD_LSFT)>;
-    };
-
-    linux_quit_app: linux_quit_app {
-        compatible = "zmk,behavior-mod-morph";
-        #binding-cells = <0>;
-        bindings = <&linux_quit_app_tap>, <&none>;
-        mods = <(MOD_LSFT)>;
-    };
-
   //
   // Linux Magic System Request Key - hold this down and type REISUB
   // - https://www.kernel.org/doc/html/latest/admin-guide/sysrq.html
@@ -3644,6 +3469,118 @@ macros {
       , <&macro_release &mo MACRO_PLACEHOLDER>
       ;
   };
+
+  //
+  // Mod window for my added fn's - added 6/5/25
+  //
+  mod_window: mod_window {
+    compatible = "zmk,behavior-macro-one-param";
+    wait-ms = <0>;
+    tap-ms = <0>;
+    #binding-cells = <1>;
+    bindings
+      = <&macro_param_1to1>,
+      <&macro_press &kp MACRO_PLACEHOLDER>,
+      <&macro_tap &kp GRAVE>,
+      <&macro_pause_for_release>,
+      <&macro_param_1to1>,
+      <&macro_release &kp MACRO_PLACEHOLDER>
+      ;
+  };
+
+  //
+  // Switch window on Mac - added 6/5/25
+  //
+  window_switcher_tap: window_switcher_tap {
+    compatible = "zmk,behavior-macro";
+    wait-ms = <0>;
+    tap-ms = <0>;
+    #binding-cells = <0>;
+    bindings
+      = <&macro_press &kp LGUI>,
+      <&macro_tap &kp GRAVE>,
+      <&macro_release &kp LGUI>
+      ;
+  };
+  window_switcher: window_switcher {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings
+      = <&window_switcher_tap>,
+      <&mod_window LGUI>
+      ;
+    mods = <(MOD_LSFT)>;
+  };
+
+
+  //
+  // Close tab on Mac - added 6/5/25
+  //
+  close_tab_tap: close_tab_tap {
+    compatible = "zmk,behavior-macro";
+    wait-ms = <0>;
+    tap-ms = <0>;
+    #binding-cells = <0>;
+    bindings
+      = <&macro_press &kp LGUI>,
+      <&macro_tap &kp W>,
+      <&macro_release &kp LGUI>
+      ;
+  };
+  close_tab: close_tab {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings
+      = <&close_tab_tap>,
+      <&none>;
+      mods = <(MOD_LSFT)>
+      ;
+  };
+
+  //
+  // Close window on Mac - added 6/5/25
+  //
+  quit_app_tap: quit_app_tap {
+    compatible = "zmk,behavior-macro";
+    wait-ms = <0>;
+    tap-ms = <0>;
+    #binding-cells = <0>;
+    bindings
+      = <&macro_press &kp LGUI>,
+      <&macro_tap &kp Q>,
+      <&macro_release &kp LGUI>
+      ;
+  };
+  quit_app: quit_app {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings
+      = <&quit_app_tap>,
+      <&none>
+      ;
+    mods = <(MOD_LSFT)>;
+  };
+
+  //
+  // Open finder macro on Mac - added 6/5/25
+  //
+  open_finder: macro_0 {
+    compatible = "zmk,behavior-macro";
+    label = "Open Finder";
+    #binding-cells = <0>;
+    bindings
+      = <&kp LGUI SPACE>,
+      <&delay-ms 100>,
+      <&kp F>,
+      <&kp I>,
+      <&kp N>,
+      <&kp D>,
+      <&kp E>,
+      <&kp R>,
+      <&kp RET>
+      ;
+  };
+
 
   //////////////////////////////////////////////////////////////////////////
   //
@@ -3758,6 +3695,9 @@ macros {
   //
   // WORLD_USE_COMPOSE uses OS-native Compose keycodes instead of Unicode
   // for characters in the "compositions" section of the `world.yaml` file.
+  //
+  // NOTE: keep this setting disabled when using UnicodeHexInput in macOS
+  // to avoid inconsistent behavior when typing World vs Emoji layer keys.
   //
   //#define WORLD_USE_COMPOSE
 
@@ -4997,11 +4937,26 @@ UNICODE_MORPH_MODS
   };
   UNICODE(world_e_oe_lower_macro, /* œ */
     #if OPERATING_SYSTEM == 'L'
+      #ifdef WORLD_USE_COMPOSE
+      #define WORLD_USE_COMPOSE_FOR_world_e_oe_lower
+      COMPOSE_SEQ_LINUX(&kp O &kp E)
+      #else
       UNICODE_SEQ_LINUX(&kp _N1 &kp _N5 &kp _N3)
+      #endif
     #elif OPERATING_SYSTEM == 'M'
+      #ifdef WORLD_USE_COMPOSE
+      #define WORLD_USE_COMPOSE_FOR_world_e_oe_lower
+      COMPOSE_SEQ_MACOS(&kp LA(Q))
+      #else
       UNICODE_SEQ_MACOS(&kp _N0 &kp _N1 &kp _N5 &kp _N3)
+      #endif
     #elif OPERATING_SYSTEM == 'W'
+      #ifdef WORLD_USE_COMPOSE
+      #define WORLD_USE_COMPOSE_FOR_world_e_oe_lower
+      COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N6)
+      #else
       UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _N5 &kp _N3)
+      #endif
     #endif
   )
   world_e_oe_lower: world_e_oe_lower {
@@ -5018,11 +4973,26 @@ UNICODE_MORPH_MODS
   };
   UNICODE(world_e_oe_upper_macro, /* Œ */
     #if OPERATING_SYSTEM == 'L'
+      #ifdef WORLD_USE_COMPOSE
+      #define WORLD_USE_COMPOSE_FOR_world_e_oe_upper
+      COMPOSE_SEQ_LINUX(&kp LS(O) &kp LS(E))
+      #else
       UNICODE_SEQ_LINUX(&kp _N1 &kp _N5 &kp _N2)
+      #endif
     #elif OPERATING_SYSTEM == 'M'
+      #ifdef WORLD_USE_COMPOSE
+      #define WORLD_USE_COMPOSE_FOR_world_e_oe_upper
+      COMPOSE_SEQ_MACOS(&kp LA(LS(Q)))
+      #else
       UNICODE_SEQ_MACOS(&kp _N0 &kp _N1 &kp _N5 &kp _N2)
+      #endif
     #elif OPERATING_SYSTEM == 'W'
+      #ifdef WORLD_USE_COMPOSE
+      #define WORLD_USE_COMPOSE_FOR_world_e_oe_upper
+      COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N1 &kp KP_N4 &kp KP_N0)
+      #else
       UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _N5 &kp _N2)
+      #endif
     #endif
   )
   world_e_oe_upper: world_e_oe_upper {
@@ -6211,12 +6181,6 @@ UNICODE_MORPH_MODS
     compatible = "zmk,behavior-mod-morph";
     #binding-cells = <0>;
     bindings = <&world_o_slash_lower>, <&world_o_slash_upper>;
-    mods = <MOD_LSFT>;
-  };
-  world_o_oe: world_o_oe {
-    compatible = "zmk,behavior-mod-morph";
-    #binding-cells = <0>;
-    bindings = <&world_e_oe_lower>, <&world_e_oe_upper>;
     mods = <MOD_LSFT>;
   };
   UNICODE(world_u_acute_lower_macro, /* ú */
@@ -10036,7 +10000,7 @@ UNICODE_MORPH_MODS
 // https://zmk.dev/docs/keymaps/input-processors/scaler
 //
 #ifndef MOUSE_SCALER_SLOW
-#define MOUSE_SCALER_SLOW 1 4
+#define MOUSE_SCALER_SLOW 1 9
 #endif
 
 //
@@ -10044,7 +10008,7 @@ UNICODE_MORPH_MODS
 // https://zmk.dev/docs/keymaps/input-processors/scaler
 //
 #ifndef MOUSE_SCALER_FAST
-#define MOUSE_SCALER_FAST 4 1
+#define MOUSE_SCALER_FAST 3 1
 #endif
 
 //
@@ -10082,19 +10046,20 @@ UNICODE_MORPH_MODS
       input-processors = <&zip_xy_scaler MOUSE_SCALER_SLOW>;
     };
     #endif
-    #ifdef LAYER_MouseFast
-    fast {
-      layers = <LAYER_MouseFast>;
-      input-processors = <&zip_xy_scaler MOUSE_SCALER_FAST>;
-    };
-    #endif
     #ifdef LAYER_MouseWarp
     warp {
       layers = <LAYER_MouseWarp>;
       input-processors = <&zip_xy_scaler MOUSE_SCALER_WARP>;
     };
     #endif
+    #ifdef LAYER_MouseFast
+    fast {
+      layers = <LAYER_MouseFast>;
+      input-processors = <&zip_xy_scaler MOUSE_SCALER_FAST>;
+    };
+    #endif
   };
+/*// FIXME: remove this (conflicts with definition in updated pr36)
   //
   // Scaling for mouse scrolling, based on @caksoylar's example:
   // https://github.com/caksoylar/zmk-config/commit/e35ee2f08788927683df7bbdd7fc73434473886e
@@ -10111,6 +10076,8 @@ UNICODE_MORPH_MODS
       };
     };
   };
+*/// FIXME
+
   &msc_input_listener {
     #ifdef LAYER_MouseSlow
     slow {

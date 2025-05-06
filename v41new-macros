@@ -59,7 +59,7 @@
 
 
 
-        // Then define the hold behaviors
+    // Then define the hold behaviors
     mod_window: mod_window {
         compatible = "zmk,behavior-macro-one-param";
         wait-ms = <0>;
