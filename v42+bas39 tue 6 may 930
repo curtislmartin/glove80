@@ -3561,6 +3561,25 @@ macros {
     mods = <(MOD_LSFT)>;
   };
 
+  //
+  // Open finder macro on Mac - added 6/5/25
+  //
+  open_finder: open_finder {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+      = <&kp LGUI SPACE>,
+      <&macro_wait_time 100>,
+      <&kp F>,
+      <&kp I>,
+      <&kp N>,
+      <&kp D>,
+      <&kp E>,
+      <&kp R>,
+      <&kp KP_ENTER>
+      ;
+  };
+
 
   //////////////////////////////////////////////////////////////////////////
   //
