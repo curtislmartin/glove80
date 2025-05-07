@@ -187,8 +187,8 @@
 #define KEY_LH_T1 ESC
 #define KEY_LH_T2 LPAR
 #define KEY_LH_T3 RPAR
-#define KEY_RH_T3 0
-#define KEY_RH_T2 LGUI
+#define KEY_RH_T3 END
+#define KEY_RH_T2 HOME
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 J
 #define KEY_RH_C2R5 M
@@ -898,18 +898,16 @@ combos {
   };
 
   // C1R5+C2R6
-  #ifdef LAYER_Gaming
-  combo_gaming_layer_toggle {
-    timeout-ms = <COMBO_FIRING_DECAY>;
-    key-positions = <POS_LH_C1R5 POS_LH_C2R6>;
-    bindings = <&tog LAYER_Gaming>;
-    layers = <0 LAYER_Gaming>;
-  };
-  #endif
   #ifdef LAYER_Typing
-  combo_typing_layer_toggle {
+  combo_typing_layer_toggle_left {
     timeout-ms = <COMBO_FIRING_DECAY>;
     key-positions = <POS_RH_C1R5 POS_RH_C2R6>;
+    bindings = <&tog LAYER_Typing>;
+    layers = <0 LAYER_Typing>;
+  };
+  combo_typing_layer_toggle_right {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_LH_C1R5 POS_LH_C2R6>;
     bindings = <&tog LAYER_Typing>;
     layers = <0 LAYER_Typing>;
   };
@@ -10065,7 +10063,7 @@ UNICODE_MORPH_MODS
 /*// FIXME: remove this (conflicts with definition in updated pr36)
   //
   // Scaling for mouse scrolling, based on @caksoylar's example:
-  // https://github.com/caksoylar/zmk-config/commit/e35ee2f08788927683df7bbdd7fc73434473886e
+  https://github.com/caksoylar/zmk-config/commit/e35ee2f08788927683df7bbdd7fc73434473886e
   //
   #include <zephyr/dt-bindings/input/input-event-codes.h>
   / {
@@ -10080,7 +10078,6 @@ UNICODE_MORPH_MODS
     };
   };
 */// FIXME
-
   &msc_input_listener {
     #ifdef LAYER_MouseSlow
     slow {
@@ -10124,3 +10121,4 @@ UNICODE_MORPH_MODS
   #define SCRL_RIGHT
 #endif
 /*HACK*//{
+//
