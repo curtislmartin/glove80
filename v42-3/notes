@@ -1,0 +1,95 @@
+== WIP (work in progress) ==
+
+Config:
+- Add THUMB_STREAK_DECAY and SPACE_STREAK_DECAY typing streak timeouts for thumb keys.
+- Remove obsolete and unused PLAIN_* settings, related to Typing layer.
+- Remove USE_NUMPAD_KEYCODES setting; use Lower layer's numpad instead.
+- Disable SPACE_FORGIVENESS by default to unblock RGB for Symbol layer.
+- Disable WORLD_USE_COMPOSE by default to fix Emoji entry with UnicodeHexInput in macOS.  Thanks to Patrick Roza on Discord for reporting this: https://discord.com/channels/877392805654306816/1193051200938049546/1345832511896424618
+
+Enthium:
+- Rearrange punctuation at the cost of increasing LSB% from 0.20% to 0.34% in Cyanophage analyzer while maintaining 0.55% SFB and reducing pinky/ring scissors to 0.34%.
+- Put minus on index finger, slash on ring.
+- Move backtick and backslash to left thumb cluster T3+T6.
+- Move parangs to satellite row, completing the set of all punctuation on the left hand.
+
+Layout:
+- Replace traditional shift keys with layer locking access.
+- Move layer unlocking to corresponding layer activation key.
+- Free up T2 and T3 keys: move T2 keys to T6; Lower to traditional pinky shift keys.
+- Add page and scroll up/down on satellite keys for one-handed browsing.
+- Use macOS-friendly "Home" and "End" shortcuts in place of Home/End keys on base and cursor layers.
+
+Combos:
+- Set C1R5+C2R6 combo for toggling the gaming layer (ditto for the typing layer) to avoid accidental activation during intense gaming sessions.  Thanks to ~gerbilOFdoom on Discord for reporting this issue: https://discord.com/channels/877392805654306816/1193051200938049546/1353030744783716452
+- Set T4+T5 combo for Shift (tap: one-shot sticky).
+- Set T1+T4 combo for CapsWord.
+- Set T1+T5 combo for CapsLock.
+- Set T2+T5 combo for Alt-Tab menu and non-sticky Hyper modifiers.
+- Set T5+T6 combo for Ctrl-Tab menu (with Shift-Tab on T1 and Tab on T2) and non-sticky Meh modifiers.
+- Set T3+T6 combo for Win-Tab menu (with Shift-Tab on T1 and Tab on T2) and non-sticky Turbo modifiers.
+- Make right hand modifiers non-sticky to match semantics of left hand.
+
+Spacegrams:
+- Restore space to ring finger and tab to middle finger like v40.
+- Consistent vertical stacking of keys: Shift-Tab above Tab.
+
+Cursor/Number/Function:
+- Move undo/redo down to satellite row make to room for consistent spacegram operators on upper rows.
+
+Cursor:
+- Move left hand undo/redo to pinky lower row for Ctrl-Z familiarity. Thanks to ~Moosy on Discord for this suggestion.
+- Remove spacegram operators from right half (only needed on left).
+- Balance the need for Undo/Redo access with that of the Spacegrams.
+- Add Shift-Tab and Tab surrounding Undo/Redo on right upper row.
+- Add Shift-Tab and Tab to thumb cluster for use by Ctrl+Tab combo.
+
+Symbol/Mouse/System:
+- Move sticky home row mods to upper row.
+
+Symbol:
+- Straddle `[]` inward roll on pinky (upper row) and ring (number row) fingers.
+- Cluster continuation marks `,;.` to be inward-rolled from grouping delimiters.
+
+Number:
+- Rearrange number row symbols according to "blind" intuition.
+- Add `E` for scientific notation in place of `_` underscore.  Thanks to ~FRomano on Discord for requesting this feature: https://discord.com/channels/877392805654306816/1193051200938049546/1343051162685014038
+- Move `_` to bottom left corner.
+- Stack `,` and `.` vertically to avoid the long reach to T6.  Thanks to ~SebasNadu on Discord for requesting this change: https://discord.com/channels/877392805654306816/1193051200938049546/1343530348730126366
+- Move `=` to T6 for a sense of finality and `,` to T1 for proximity to numpad.  This also allows for raking down of `<=` and `>=`.
+
+Emoji:
+- Swap ZWJ and skin tone preset keys: ZWJ is now on pinky.
+- Move sunrise emojis to the thumb cluster.
+- TODO: needs a little more rearrangement to fill gaps.
+- Add &nerd_face emoji.
+
+Gaming:
+- Swap Enter and V on the left thumb cluster to avoid accidental Alt+Enter.  Thanks to ~gerbilOFdoom on Discord for reporting this issue: https://discord.com/channels/877392805654306816/1193051200938049546/1344881172588527656
+
+Mouse/Symbol/System:
+- Move sticky mods to upper row for ease of access.  Thanks to Patrick Roza on Discord for reporting this issue: https://discord.com/channels/877392805654306816/1193051200938049546/1344596992411701298
+
+Mouse:
+- Put cut/copy/paste keys on right hand's thumb cluster.
+- Put mouse button clicks on right hand's inner index column.
+- Put mouse button 4/5 on right hand's outer pinky column.
+- Put scroll wheel controls on right hand's satellite row.
+- Add secondary up/down scrolling on left index finger to give the pinky a break.
+- Allow Warp speed modifier to override Fast.  Slow overrides Warp overrides Fast.
+
+Typing:
+- Mask satellite keys on both hands for consistency with Typing layer semantics.
+
+Lower:
+- Replace default Glove80 "Lower layer" layout with a numeric keypad on right hand.
+- Make it easy to type Windows Alt-Codes with RALT and the numeric keypad keycodes.
+
+== END ==
+
+Sunaku's Keymap v42 for the "Glorious Engrammer" 🧑‍🚀🚀✨
+- Intro & setup: https://github.com/sunaku/glove80-keymaps/tree/v42/#readme
+- Release notes: https://github.com/sunaku/glove80-keymaps/releases/tag/v42
+- Printable map: https://github.com/sunaku/glove80-keymaps/raw/v42/README/all-layer-diagrams.pdf
+- Documentation: https://sunaku.github.io/moergo-glove80-keyboard.html#layers
+- Discord forum: **#glorious-engrammer** channel in https://www.moergo.com/discord

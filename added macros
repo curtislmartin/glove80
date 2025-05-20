@@ -1,0 +1,113 @@
+  //
+  // Mod window for my added fn's - added 6/5/25
+  //
+  mod_window: mod_window {
+    compatible = "zmk,behavior-macro-one-param";
+    wait-ms = <0>;
+    tap-ms = <0>;
+    #binding-cells = <1>;
+    bindings
+      = <&macro_param_1to1>,
+      <&macro_press &kp MACRO_PLACEHOLDER>,
+      <&macro_tap &kp GRAVE>,
+      <&macro_pause_for_release>,
+      <&macro_param_1to1>,
+      <&macro_release &kp MACRO_PLACEHOLDER>
+      ;
+  };
+
+  //
+  // Switch window on Mac - added 6/5/25
+  //
+  window_switcher_tap: window_switcher_tap {
+    compatible = "zmk,behavior-macro";
+    wait-ms = <0>;
+    tap-ms = <0>;
+    #binding-cells = <0>;
+    bindings
+      = <&macro_press &kp LGUI>,
+      <&macro_tap &kp GRAVE>,
+      <&macro_release &kp LGUI>
+      ;
+  };
+  window_switcher: window_switcher {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings
+      = <&window_switcher_tap>,
+      <&mod_window LGUI>
+      ;
+    mods = <(MOD_LSFT)>;
+  };
+
+
+  //
+  // Close tab on Mac - added 6/5/25
+  //
+  close_tab_tap: close_tab_tap {
+    compatible = "zmk,behavior-macro";
+    wait-ms = <0>;
+    tap-ms = <0>;
+    #binding-cells = <0>;
+    bindings
+      = <&macro_press &kp LGUI>,
+      <&macro_tap &kp W>,
+      <&macro_release &kp LGUI>
+      ;
+  };
+  close_tab: close_tab {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings
+      = <&close_tab_tap>,
+      <&none>;
+      mods = <(MOD_LSFT)>
+      ;
+  };
+
+  //
+  // Close window on Mac - added 6/5/25
+  //
+  quit_app_tap: quit_app_tap {
+    compatible = "zmk,behavior-macro";
+    wait-ms = <0>;
+    tap-ms = <0>;
+    #binding-cells = <0>;
+    bindings
+      = <&macro_press &kp LGUI>,
+      <&macro_tap &kp Q>,
+      <&macro_release &kp LGUI>
+      ;
+  };
+  quit_app: quit_app {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings
+      = <&quit_app_tap>,
+      <&none>
+      ;
+    mods = <(MOD_LSFT)>;
+  };
+
+  //
+  // Open finder macro on Mac - added 6/5/25
+  //
+  open_finder: open_finder {
+    compatible = "zmk,behavior-macro";
+    wait-ms = <0>;
+    tap-ms = <0>;
+    #binding-cells = <0>;
+    bindings
+      = <&macro_press &kp LGUI>,
+      <&macro_tap &kp SPACE>,
+      <&macro_release &kp LGUI>,
+      <&macro_wait_time 100>,
+      <&macro_tap &kp F>,
+      <&macro_tap &kp I>,
+      <&macro_tap &kp N>,
+      <&macro_tap &kp D>,
+      <&macro_tap &kp E>,
+      <&macro_tap &kp R>,
+      <&macro_tap &kp KP_ENTER>
+      ;
+  };

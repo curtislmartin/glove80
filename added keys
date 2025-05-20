@@ -1,0 +1,24 @@
+Left
+T 1  2  3
+T 4  5  6
+
+
+C 6 5 4 3 2 1
+R
+6
+5
+4
+3
+2
+1
+
+
+Cursor layer
+T1 = &mod_tab _A_TAB
+T2 = &window_switcher
+T5 = &mod_tab LCTL
+
+Function layer
+T2 = &close_tab
+T6 = &quit_app
+C1R2 = &open_finder

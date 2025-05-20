@@ -1,5 +1,7 @@
 #define ENABLE_MOUSE_KEYS
 #define INDEX_HOLDING_TIME 190 // plum blossom
+#define THUMB_STREAK_DECAY 70 // allow Cursor layer arrows more quickly after typing something
+#define SPACE_STREAK_DECAY 70 // inhibit Symbol layer while typing "rk" in the word "mark"
 
 // NOTE: Use the many #define settings below to customize this keymap!
 #define OPERATING_SYSTEM 'M' // choose 'L'inux, 'M'acOS, or 'W'indows
@@ -86,49 +88,6 @@
 #define _FIND_PREV  _C(LS(G))
 
 //
-// USE_NUMPAD_KEYCODES puts `KP_*` keycodes into the Number layer.
-//
-#ifdef USE_NUMPAD_KEYCODES
-#define _KP_N0 KP_N0
-#define _KP_N1 KP_N1
-#define _KP_N2 KP_N2
-#define _KP_N3 KP_N3
-#define _KP_N4 KP_N4
-#define _KP_N5 KP_N5
-#define _KP_N6 KP_N6
-#define _KP_N7 KP_N7
-#define _KP_N8 KP_N8
-#define _KP_N9 KP_N9
-#define _KP_PLUS KP_PLUS
-#define _KP_MINUS KP_MINUS
-#define _KP_ASTERISK KP_ASTERISK
-#define _KP_SLASH KP_SLASH
-#define _KP_COMMA KP_COMMA
-#define _KP_DOT KP_DOT
-#define _KP_EQUAL KP_EQUAL
-#define _KP_ENTER KP_ENTER
-#else
-#define _KP_N0 N0
-#define _KP_N1 N1
-#define _KP_N2 N2
-#define _KP_N3 N3
-#define _KP_N4 N4
-#define _KP_N5 N5
-#define _KP_N6 N6
-#define _KP_N7 N7
-#define _KP_N8 N8
-#define _KP_N9 N9
-#define _KP_PLUS PLUS
-#define _KP_MINUS MINUS
-#define _KP_ASTERISK ASTERISK
-#define _KP_SLASH SLASH
-#define _KP_COMMA COMMA
-#define _KP_DOT DOT
-#define _KP_EQUAL EQUAL
-#define _KP_ENTER ENTER
-#endif
-
-//
 // Keymap specific knowledge of the base layer's alpha + ZMK layout
 //
 #if defined(LAYER_Enthium) && LAYER_Enthium == 0
@@ -180,15 +139,15 @@
 #define KEY_RH_C6R4 V
 #define KEY_LH_C6R5 0
 #define KEY_LH_C5R5 SQT
-#define KEY_LH_C4R5 MINUS
+#define KEY_LH_C4R5 FSLH
 #define KEY_LH_C3R5 EQUAL
-#define KEY_LH_C2R5 DOT
-#define KEY_LH_C1R5 FSLH
+#define KEY_LH_C2R5 MINUS
+#define KEY_LH_C1R5 DOT
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 LPAR
-#define KEY_LH_T3 RPAR
-#define KEY_RH_T3 END
-#define KEY_RH_T2 HOME
+#define KEY_LH_T2 LBKT
+#define KEY_LH_T3 RBKT
+#define KEY_RH_T3 _HOME
+#define KEY_RH_T2 _END
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 J
 #define KEY_RH_C2R5 M
@@ -198,8 +157,8 @@
 #define KEY_RH_C6R5 0
 #define KEY_LH_C6R6 0
 #define KEY_LH_C5R6 BSLH
-#define KEY_LH_C4R6 LBKT
-#define KEY_LH_C3R6 RBKT
+#define KEY_LH_C4R6 LPAR
+#define KEY_LH_C3R6 RPAR
 #define KEY_LH_C2R6 GRAVE
 #define KEY_LH_T4 SPACE
 #define KEY_LH_T5 TAB
@@ -260,39 +219,39 @@
 #define KEY_RH_C4R4 S
 #define KEY_RH_C5R4 N
 #define KEY_RH_C6R4 Q
-#define KEY_LH_C6R5 GRAVE
+#define KEY_LH_C6R5 0
 #define KEY_LH_C5R5 G
 #define KEY_LH_C4R5 X
 #define KEY_LH_C3R5 J
 #define KEY_LH_C2R5 K
 #define KEY_LH_C1R5 MINUS
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 0
-#define KEY_LH_T3 0
-#define KEY_RH_T3 0
-#define KEY_RH_T2 0
+#define KEY_LH_T2 LBKT
+#define KEY_LH_T3 RBKT
+#define KEY_RH_T3 _HOME
+#define KEY_RH_T2 _END
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 FSLH
 #define KEY_RH_C2R5 R
 #define KEY_RH_C3R5 M
 #define KEY_RH_C4R5 F
 #define KEY_RH_C5R5 P
-#define KEY_RH_C6R5 BSLH
+#define KEY_RH_C6R5 0
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C5R6 BSLH
 #define KEY_LH_C4R6 LPAR
 #define KEY_LH_C3R6 RPAR
-#define KEY_LH_C2R6 RBKT
+#define KEY_LH_C2R6 GRAVE
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
-#define KEY_LH_T6 0
+#define KEY_LH_T6 INSERT
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 HOME
-#define KEY_RH_C3R6 PG_UP
-#define KEY_RH_C4R6 PG_DN
-#define KEY_RH_C5R6 END
+#define KEY_RH_C2R6 PAGE_UP
+#define KEY_RH_C3R6 0
+#define KEY_RH_C4R6 0
+#define KEY_RH_C5R6 PG_DN
 #define KEY_RH_C6R6 0
 #endif
 #if defined(LAYER_Engram) && LAYER_Engram == 0
@@ -342,39 +301,39 @@
 #define KEY_RH_C4R4 S
 #define KEY_RH_C5R4 N
 #define KEY_RH_C6R4 Q
-#define KEY_LH_C6R5 AT
+#define KEY_LH_C6R5 0
 #define KEY_LH_C5R5 G
 #define KEY_LH_C4R5 X
 #define KEY_LH_C3R5 J
 #define KEY_LH_C2R5 K
 #define KEY_LH_C1R5 MINUS
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 0
-#define KEY_LH_T3 0
-#define KEY_RH_T3 0
-#define KEY_RH_T2 0
+#define KEY_LH_T2 LBKT
+#define KEY_LH_T3 RBKT
+#define KEY_RH_T3 _HOME
+#define KEY_RH_T2 _END
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 QMARK
 #define KEY_RH_C2R5 R
 #define KEY_RH_C3R5 M
 #define KEY_RH_C4R5 F
 #define KEY_RH_C5R5 P
-#define KEY_RH_C6R5 FSLH
+#define KEY_RH_C6R5 0
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C5R6 FSLH
 #define KEY_LH_C4R6 LPAR
 #define KEY_LH_C3R6 RPAR
-#define KEY_LH_C2R6 RBKT
+#define KEY_LH_C2R6 AT
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
-#define KEY_LH_T6 0
+#define KEY_LH_T6 INSERT
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 HOME
-#define KEY_RH_C3R6 PG_UP
-#define KEY_RH_C4R6 PG_DN
-#define KEY_RH_C5R6 END
+#define KEY_RH_C2R6 PAGE_UP
+#define KEY_RH_C3R6 0
+#define KEY_RH_C4R6 0
+#define KEY_RH_C5R6 PG_DN
 #define KEY_RH_C6R6 0
 #endif
 #if defined(LAYER_Dvorak) && LAYER_Dvorak == 0
@@ -424,39 +383,39 @@
 #define KEY_RH_C4R4 N
 #define KEY_RH_C5R4 S
 #define KEY_RH_C6R4 MINUS
-#define KEY_LH_C6R5 GRAVE
+#define KEY_LH_C6R5 0
 #define KEY_LH_C5R5 SEMI
 #define KEY_LH_C4R5 Q
 #define KEY_LH_C3R5 J
 #define KEY_LH_C2R5 K
 #define KEY_LH_C1R5 X
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 0
-#define KEY_LH_T3 0
-#define KEY_RH_T3 0
-#define KEY_RH_T2 0
+#define KEY_LH_T2 LBKT
+#define KEY_LH_T3 RBKT
+#define KEY_RH_T3 _HOME
+#define KEY_RH_T2 _END
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 B
 #define KEY_RH_C2R5 M
 #define KEY_RH_C3R5 W
 #define KEY_RH_C4R5 V
 #define KEY_RH_C5R5 Z
-#define KEY_RH_C6R5 BSLH
+#define KEY_RH_C6R5 0
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C5R6 BSLH
 #define KEY_LH_C4R6 LPAR
 #define KEY_LH_C3R6 RPAR
-#define KEY_LH_C2R6 RBKT
+#define KEY_LH_C2R6 GRAVE
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
-#define KEY_LH_T6 0
+#define KEY_LH_T6 INSERT
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 HOME
-#define KEY_RH_C3R6 PG_UP
-#define KEY_RH_C4R6 PG_DN
-#define KEY_RH_C5R6 END
+#define KEY_RH_C2R6 PAGE_UP
+#define KEY_RH_C3R6 0
+#define KEY_RH_C4R6 0
+#define KEY_RH_C5R6 PG_DN
 #define KEY_RH_C6R6 0
 #endif
 #if defined(LAYER_Colemak) && LAYER_Colemak == 0
@@ -506,39 +465,39 @@
 #define KEY_RH_C4R4 I
 #define KEY_RH_C5R4 O
 #define KEY_RH_C6R4 SQT
-#define KEY_LH_C6R5 GRAVE
+#define KEY_LH_C6R5 0
 #define KEY_LH_C5R5 Z
 #define KEY_LH_C4R5 X
 #define KEY_LH_C3R5 C
 #define KEY_LH_C2R5 V
 #define KEY_LH_C1R5 B
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 0
-#define KEY_LH_T3 0
-#define KEY_RH_T3 0
-#define KEY_RH_T2 0
+#define KEY_LH_T2 LBKT
+#define KEY_LH_T3 RBKT
+#define KEY_RH_T3 _HOME
+#define KEY_RH_T2 _END
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 K
 #define KEY_RH_C2R5 M
 #define KEY_RH_C3R5 COMMA
 #define KEY_RH_C4R5 DOT
 #define KEY_RH_C5R5 FSLH
-#define KEY_RH_C6R5 BSLH
+#define KEY_RH_C6R5 0
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C5R6 BSLH
 #define KEY_LH_C4R6 LPAR
 #define KEY_LH_C3R6 RPAR
-#define KEY_LH_C2R6 RBKT
+#define KEY_LH_C2R6 GRAVE
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
-#define KEY_LH_T6 0
+#define KEY_LH_T6 INSERT
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 HOME
-#define KEY_RH_C3R6 PG_UP
-#define KEY_RH_C4R6 PG_DN
-#define KEY_RH_C5R6 END
+#define KEY_RH_C2R6 PAGE_UP
+#define KEY_RH_C3R6 0
+#define KEY_RH_C4R6 0
+#define KEY_RH_C5R6 PG_DN
 #define KEY_RH_C6R6 0
 #endif
 #if defined(LAYER_QWERTY) && LAYER_QWERTY == 0
@@ -588,39 +547,39 @@
 #define KEY_RH_C4R4 L
 #define KEY_RH_C5R4 SEMI
 #define KEY_RH_C6R4 SQT
-#define KEY_LH_C6R5 GRAVE
+#define KEY_LH_C6R5 0
 #define KEY_LH_C5R5 Z
 #define KEY_LH_C4R5 X
 #define KEY_LH_C3R5 C
 #define KEY_LH_C2R5 V
 #define KEY_LH_C1R5 B
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 0
-#define KEY_LH_T3 0
-#define KEY_RH_T3 0
-#define KEY_RH_T2 0
+#define KEY_LH_T2 LBKT
+#define KEY_LH_T3 RBKT
+#define KEY_RH_T3 _HOME
+#define KEY_RH_T2 _END
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 N
 #define KEY_RH_C2R5 M
 #define KEY_RH_C3R5 COMMA
 #define KEY_RH_C4R5 DOT
 #define KEY_RH_C5R5 FSLH
-#define KEY_RH_C6R5 BSLH
+#define KEY_RH_C6R5 0
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C5R6 BSLH
 #define KEY_LH_C4R6 LPAR
 #define KEY_LH_C3R6 RPAR
-#define KEY_LH_C2R6 RBKT
+#define KEY_LH_C2R6 GRAVE
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
-#define KEY_LH_T6 0
+#define KEY_LH_T6 INSERT
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 HOME
-#define KEY_RH_C3R6 PG_UP
-#define KEY_RH_C4R6 PG_DN
-#define KEY_RH_C5R6 END
+#define KEY_RH_C2R6 PAGE_UP
+#define KEY_RH_C3R6 0
+#define KEY_RH_C4R6 0
+#define KEY_RH_C5R6 PG_DN
 #define KEY_RH_C6R6 0
 #endif
 #if defined(LAYER_ColemakDH) && LAYER_ColemakDH == 0
@@ -670,39 +629,39 @@
 #define KEY_RH_C4R4 I
 #define KEY_RH_C5R4 O
 #define KEY_RH_C6R4 SQT
-#define KEY_LH_C6R5 GRAVE
+#define KEY_LH_C6R5 0
 #define KEY_LH_C5R5 Z
 #define KEY_LH_C4R5 X
 #define KEY_LH_C3R5 C
 #define KEY_LH_C2R5 D
 #define KEY_LH_C1R5 V
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 0
-#define KEY_LH_T3 0
-#define KEY_RH_T3 0
-#define KEY_RH_T2 0
+#define KEY_LH_T2 LBKT
+#define KEY_LH_T3 RBKT
+#define KEY_RH_T3 _HOME
+#define KEY_RH_T2 _END
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 K
 #define KEY_RH_C2R5 H
 #define KEY_RH_C3R5 COMMA
 #define KEY_RH_C4R5 DOT
 #define KEY_RH_C5R5 FSLH
-#define KEY_RH_C6R5 BSLH
+#define KEY_RH_C6R5 0
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C5R6 BSLH
 #define KEY_LH_C4R6 LPAR
 #define KEY_LH_C3R6 RPAR
-#define KEY_LH_C2R6 RBKT
+#define KEY_LH_C2R6 GRAVE
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
-#define KEY_LH_T6 0
+#define KEY_LH_T6 INSERT
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 HOME
-#define KEY_RH_C3R6 PG_UP
-#define KEY_RH_C4R6 PG_DN
-#define KEY_RH_C5R6 END
+#define KEY_RH_C2R6 PAGE_UP
+#define KEY_RH_C3R6 0
+#define KEY_RH_C4R6 0
+#define KEY_RH_C5R6 PG_DN
 #define KEY_RH_C6R6 0
 #endif
 #if defined(LAYER_Canary) && LAYER_Canary == 0
@@ -752,39 +711,39 @@
 #define KEY_RH_C4R4 I
 #define KEY_RH_C5R4 A
 #define KEY_RH_C6R4 SEMI
-#define KEY_LH_C6R5 GRAVE
+#define KEY_LH_C6R5 0
 #define KEY_LH_C5R5 Q
 #define KEY_LH_C4R5 J
 #define KEY_LH_C3R5 V
 #define KEY_LH_C2R5 D
 #define KEY_LH_C1R5 K
 #define KEY_LH_T1 ESC
-#define KEY_LH_T2 0
-#define KEY_LH_T3 0
-#define KEY_RH_T3 0
-#define KEY_RH_T2 0
+#define KEY_LH_T2 LBKT
+#define KEY_LH_T3 RBKT
+#define KEY_RH_T3 _HOME
+#define KEY_RH_T2 _END
 #define KEY_RH_T1 ENTER
 #define KEY_RH_C1R5 X
 #define KEY_RH_C2R5 H
 #define KEY_RH_C3R5 FSLH
 #define KEY_RH_C4R5 COMMA
 #define KEY_RH_C5R5 DOT
-#define KEY_RH_C6R5 BSLH
+#define KEY_RH_C6R5 0
 #define KEY_LH_C6R6 0
-#define KEY_LH_C5R6 LBKT
+#define KEY_LH_C5R6 BSLH
 #define KEY_LH_C4R6 LPAR
 #define KEY_LH_C3R6 RPAR
-#define KEY_LH_C2R6 RBKT
+#define KEY_LH_C2R6 GRAVE
 #define KEY_LH_T4 BACKSPACE
 #define KEY_LH_T5 DELETE
-#define KEY_LH_T6 0
+#define KEY_LH_T6 INSERT
 #define KEY_RH_T6 0
 #define KEY_RH_T5 TAB
 #define KEY_RH_T4 SPACE
-#define KEY_RH_C2R6 HOME
-#define KEY_RH_C3R6 PG_UP
-#define KEY_RH_C4R6 PG_DN
-#define KEY_RH_C5R6 END
+#define KEY_RH_C2R6 PAGE_UP
+#define KEY_RH_C3R6 0
+#define KEY_RH_C4R6 0
+#define KEY_RH_C5R6 PG_DN
 #define KEY_RH_C6R6 0
 #endif
 
@@ -898,16 +857,18 @@ combos {
   };
 
   // C1R5+C2R6
-  #ifdef LAYER_Typing
-  combo_typing_layer_toggle_left {
-    timeout-ms = <COMBO_FIRING_DECAY>;
-    key-positions = <POS_RH_C1R5 POS_RH_C2R6>;
-    bindings = <&tog LAYER_Typing>;
-    layers = <0 LAYER_Typing>;
-  };
-  combo_typing_layer_toggle_right {
+  #ifdef LAYER_Gaming
+  combo_gaming_layer_toggle {
     timeout-ms = <COMBO_FIRING_DECAY>;
     key-positions = <POS_LH_C1R5 POS_LH_C2R6>;
+    bindings = <&tog LAYER_Gaming>;
+    layers = <0 LAYER_Gaming>;
+  };
+  #endif
+  #ifdef LAYER_Typing
+  combo_typing_layer_toggle {
+    timeout-ms = <COMBO_FIRING_DECAY>;
+    key-positions = <POS_RH_C1R5 POS_RH_C2R6>;
     bindings = <&tog LAYER_Typing>;
     layers = <0 LAYER_Typing>;
   };
@@ -1200,44 +1161,6 @@ behaviors {
   #endif // "tap then hold" for key auto-repeat
 
   //
-  // PLAIN_HOLDING_TYPE defines the flavor of ZMK hold-tap behavior to use
-  // for index fingers (which Miryoku assigns to Shift) on home row keys.
-  //
-  // NOTE: The "tap-preferred" flavor of ZMK hold-tap for index finger keys
-  // allows faster activation of the Shift modifier (without having to wait
-  // for the modified key to be released as the "balanced" flavor requires).
-  //
-  #ifndef PLAIN_HOLDING_TYPE
-  #define PLAIN_HOLDING_TYPE INDEX_HOLDING_TYPE
-  #endif
-
-  //
-  // PLAIN_HOLDING_TIME defines how long you need to hold (milliseconds)
-  // index finger keys in order to send their modifiers to the computer
-  // (i.e. "register" them) for mod-click mouse usage (e.g. Shift-Click).
-  //
-  #ifndef PLAIN_HOLDING_TIME
-  #define PLAIN_HOLDING_TIME (TAPPING_RESOLUTION + 50)
-  #endif
-
-  //
-  // PLAIN_STREAK_DECAY defines how long you need to wait (milliseconds)
-  // after typing before you can use home row mods again.  It prevents
-  // unintended activation of home row mods when you're actively typing.
-  //
-  #ifndef PLAIN_STREAK_DECAY
-  #define PLAIN_STREAK_DECAY HOMEY_STREAK_DECAY
-  #endif
-
-  //
-  // PLAIN_REPEAT_DECAY defines how much time you have left (milliseconds)
-  // after tapping a key to hold it again in order to make it auto-repeat.
-  //
-  #ifndef PLAIN_REPEAT_DECAY
-  #define PLAIN_REPEAT_DECAY (TAPPING_RESOLUTION + 150)
-  #endif // "tap then hold" for key auto-repeat
-
-  //
   // THUMB_HOLDING_TYPE defines the flavor of ZMK hold-tap behavior to use
   // for the thumbs (which are assigned to 6 layers in the Miryoku system).
   //
@@ -1255,6 +1178,15 @@ behaviors {
   //
   #ifndef THUMB_HOLDING_TIME
   #define THUMB_HOLDING_TIME (TAPPING_RESOLUTION + 50)
+  #endif
+
+  //
+  // THUMB_STREAK_DECAY defines how long you need to wait (milliseconds)
+  // after typing before you can use home row mods again.  It prevents
+  // unintended activation of home row mods when you're actively typing.
+  //
+  #ifndef THUMB_STREAK_DECAY
+  #define THUMB_STREAK_DECAY (TAPPING_RESOLUTION - 50)
   #endif
 
   //
@@ -1279,6 +1211,15 @@ behaviors {
   //
   #ifndef SPACE_HOLDING_TIME
   #define SPACE_HOLDING_TIME (TAPPING_RESOLUTION + 20)
+  #endif
+
+  //
+  // SPACE_STREAK_DECAY defines how long you need to wait (milliseconds)
+  // after typing before you can use home row mods again.  It prevents
+  // unintended activation of home row mods when you're actively typing.
+  //
+  #ifndef SPACE_STREAK_DECAY
+  #define SPACE_STREAK_DECAY (TAPPING_RESOLUTION - 80)
   #endif
 
   //
@@ -3157,6 +3098,7 @@ behaviors {
     flavor = THUMB_HOLDING_TYPE;
     tapping-term-ms = <THUMB_HOLDING_TIME>;
     quick-tap-ms = <THUMB_REPEAT_DECAY>; // enable repeat
+    require-prior-idle-ms = <THUMB_STREAK_DECAY>;
     #binding-cells = <2>;
     bindings = <&mo>, <&kp>;
     #ifdef THUMB_FORGIVENESS
@@ -3168,6 +3110,7 @@ behaviors {
     flavor = THUMB_HOLDING_TYPE;
     tapping-term-ms = <THUMB_HOLDING_TIME>;
     quick-tap-ms = <THUMB_REPEAT_DECAY>; // enable repeat
+    require-prior-idle-ms = <THUMB_STREAK_DECAY>;
     #binding-cells = <2>;
     bindings = <&mo>, <&sticky_key_oneshot>;
   };
@@ -3176,6 +3119,7 @@ behaviors {
     flavor = THUMB_HOLDING_TYPE;
     tapping-term-ms = <THUMB_HOLDING_TIME>;
     quick-tap-ms = <THUMB_REPEAT_DECAY>; // enable repeat
+    require-prior-idle-ms = <THUMB_STREAK_DECAY>;
     #binding-cells = <2>;
     bindings = <&mo>, <&kp>;
     retro-tap; // tap on standalone hold
@@ -3185,6 +3129,7 @@ behaviors {
     flavor = THUMB_HOLDING_TYPE;
     tapping-term-ms = <THUMB_HOLDING_TIME>;
     quick-tap-ms = <THUMB_REPEAT_DECAY>; // enable repeat
+    require-prior-idle-ms = <THUMB_STREAK_DECAY>;
     #binding-cells = <2>;
     bindings = <&mo>, <&parang_left>;
     retro-tap; // tap on standalone hold
@@ -3194,14 +3139,28 @@ behaviors {
     flavor = THUMB_HOLDING_TYPE;
     tapping-term-ms = <THUMB_HOLDING_TIME>;
     quick-tap-ms = <THUMB_REPEAT_DECAY>; // enable repeat
+    require-prior-idle-ms = <THUMB_STREAK_DECAY>;
     #binding-cells = <2>;
     bindings = <&mo>, <&parang_right>;
     retro-tap; // tap on standalone hold
   };
+  #ifdef LAYER_Engram
+  crumb_engram_AT: crumb_layer_access_engram_AT {
+    compatible = "zmk,behavior-hold-tap";
+    flavor = THUMB_HOLDING_TYPE;
+    tapping-term-ms = <THUMB_HOLDING_TIME>;
+    quick-tap-ms = <THUMB_REPEAT_DECAY>; // enable repeat
+    require-prior-idle-ms = <THUMB_STREAK_DECAY>;
+    #binding-cells = <2>;
+    bindings = <&mo>, <&engram_AT>;
+    retro-tap; // tap on standalone hold
+  };
+  #endif
   space: thumb_layer_access_spacebar {
     compatible = "zmk,behavior-hold-tap";
     flavor = SPACE_HOLDING_TYPE;
     tapping-term-ms = <SPACE_HOLDING_TIME>;
+    require-prior-idle-ms = <SPACE_STREAK_DECAY>;
     quick-tap-ms = <SPACE_REPEAT_DECAY>; // enable repeat
     #binding-cells = <2>;
     bindings = <&mo>, <&kp>;
@@ -3581,7 +3540,6 @@ macros {
       <&macro_tap &kp KP_ENTER>
       ;
   };
-
 
   //////////////////////////////////////////////////////////////////////////
   //
@@ -9204,21 +9162,21 @@ UNICODE_MORPH_MODS
 #endif
 ))>;
   };
-  UNICODE(emoji_checkoff_macro, /* ✅ */
+  UNICODE(emoji_check_macro, /* ✔️ */
     #if OPERATING_SYSTEM == 'L'
-      UNICODE_SEQ_LINUX(&kp _N2 &kp _N7 &kp _N0 &kp _N5)
+      UNICODE_SEQ_LINUX(&kp _N2 &kp _N7 &kp _N1 &kp _N4), <&macro_wait_time UNICODE_SEQ_DELAY>, UNICODE_SEQ_LINUX(&kp _NF &kp _NE &kp _N0 &kp _NF)
     #elif OPERATING_SYSTEM == 'M'
-      UNICODE_SEQ_MACOS(&kp _N2 &kp _N7 &kp _N0 &kp _N5)
+      UNICODE_SEQ_MACOS(&kp _N2 &kp _N7 &kp _N1 &kp _N4), <&macro_wait_time UNICODE_SEQ_DELAY>, UNICODE_SEQ_MACOS(&kp _NF &kp _NE &kp _N0 &kp _NF)
     #elif OPERATING_SYSTEM == 'W'
-      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N2 &kp _N7 &kp _N0 &kp _N5)
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N2 &kp _N7 &kp _N1 &kp _N4), <&macro_wait_time UNICODE_SEQ_DELAY>, UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NF &kp _NE &kp _N0 &kp _NF)
     #endif
   )
-  emoji_checkoff: emoji_checkoff {
+  emoji_check: emoji_check {
     compatible = "zmk,behavior-mod-morph";
     #binding-cells = <0>;
-    bindings = <&emoji_checkoff_macro>, <&emoji_checkoff_macro>;
+    bindings = <&emoji_check_macro>, <&emoji_check_macro>;
     mods = <(~(
-#ifdef WORLD_USE_COMPOSE_FOR_emoji_checkoff
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_check
 COMPOSE_MORPH_MODS
 #else
 UNICODE_MORPH_MODS
@@ -9267,7 +9225,7 @@ UNICODE_MORPH_MODS
 #endif
 ))>;
   };
-  UNICODE(emoji_x_macro, /* ❌ */
+  UNICODE(emoji_cross_macro, /* ❌ */
     #if OPERATING_SYSTEM == 'L'
       UNICODE_SEQ_LINUX(&kp _N2 &kp _N7 &kp _N4 &kp _NC)
     #elif OPERATING_SYSTEM == 'M'
@@ -9276,12 +9234,12 @@ UNICODE_MORPH_MODS
       UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N2 &kp _N7 &kp _N4 &kp _NC)
     #endif
   )
-  emoji_x: emoji_x {
+  emoji_cross: emoji_cross {
     compatible = "zmk,behavior-mod-morph";
     #binding-cells = <0>;
-    bindings = <&emoji_x_macro>, <&emoji_x_macro>;
+    bindings = <&emoji_cross_macro>, <&emoji_cross_macro>;
     mods = <(~(
-#ifdef WORLD_USE_COMPOSE_FOR_emoji_x
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_cross
 COMPOSE_MORPH_MODS
 #else
 UNICODE_MORPH_MODS
@@ -9463,33 +9421,6 @@ UNICODE_MORPH_MODS
     bindings = <&emoji_waning_crescent_moon>, <&emoji_waxing_crescent_moon>;
     mods = <MOD_LSFT>;
   };
-  UNICODE(emoji_moon_stars_magic_macro, /* 🪄 */
-    #if OPERATING_SYSTEM == 'L'
-      UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _NA &kp _N8 &kp _N4)
-    #elif OPERATING_SYSTEM == 'M'
-      UNICODE_SEQ_MACOS(&kp _ND &kp _N8 &kp _N3 &kp _NE &kp _ND &kp _NE &kp _N8 &kp _N4)
-    #elif OPERATING_SYSTEM == 'W'
-      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _NA &kp _N8 &kp _N4)
-    #endif
-  )
-  emoji_moon_stars_magic: emoji_moon_stars_magic {
-    compatible = "zmk,behavior-mod-morph";
-    #binding-cells = <0>;
-    bindings = <&emoji_moon_stars_magic_macro>, <&emoji_moon_stars_magic_macro>;
-    mods = <(~(
-#ifdef WORLD_USE_COMPOSE_FOR_emoji_moon_stars_magic
-COMPOSE_MORPH_MODS
-#else
-UNICODE_MORPH_MODS
-#endif
-))>;
-  };
-  emoji_moon_stars: emoji_moon_stars {
-    compatible = "zmk,behavior-mod-morph";
-    #binding-cells = <0>;
-    bindings = <&emoji_sparkles>, <&emoji_moon_stars_magic>;
-    mods = <MOD_LSFT>;
-  };
   UNICODE(emoji_face_smile_up_macro, /* 🙂 */
     #if OPERATING_SYSTEM == 'L'
       UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _N6 &kp _N4 &kp _N2)
@@ -9571,7 +9502,7 @@ UNICODE_MORPH_MODS
 #endif
 ))>;
   };
-  UNICODE(emoji_face_joke_tounge_macro, /* 😜 */
+  UNICODE(emoji_face_joke_tongue_macro, /* 😜 */
     #if OPERATING_SYSTEM == 'L'
       UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _N6 &kp _N1 &kp _NC)
     #elif OPERATING_SYSTEM == 'M'
@@ -9580,12 +9511,12 @@ UNICODE_MORPH_MODS
       UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _N6 &kp _N1 &kp _NC)
     #endif
   )
-  emoji_face_joke_tounge: emoji_face_joke_tounge {
+  emoji_face_joke_tongue: emoji_face_joke_tongue {
     compatible = "zmk,behavior-mod-morph";
     #binding-cells = <0>;
-    bindings = <&emoji_face_joke_tounge_macro>, <&emoji_face_joke_tounge_macro>;
+    bindings = <&emoji_face_joke_tongue_macro>, <&emoji_face_joke_tongue_macro>;
     mods = <(~(
-#ifdef WORLD_USE_COMPOSE_FOR_emoji_face_joke_tounge
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_face_joke_tongue
 COMPOSE_MORPH_MODS
 #else
 UNICODE_MORPH_MODS
@@ -9595,7 +9526,7 @@ UNICODE_MORPH_MODS
   emoji_face_joke: emoji_face_joke {
     compatible = "zmk,behavior-mod-morph";
     #binding-cells = <0>;
-    bindings = <&emoji_face_joke_wink>, <&emoji_face_joke_tounge>;
+    bindings = <&emoji_face_joke_wink>, <&emoji_face_joke_tongue>;
     mods = <MOD_LSFT>;
   };
   UNICODE(emoji_face_fear_scared_macro, /* 😨 */
@@ -9853,6 +9784,345 @@ UNICODE_MORPH_MODS
     bindings = <&emoji_raised_hands>, <&emoji_gesture_hands_clap>;
     mods = <MOD_LSFT>;
   };
+  UNICODE(emoji_theme_awesome_shine_macro, /* 🌟 */
+    #if OPERATING_SYSTEM == 'L'
+      UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _N3 &kp _N1 &kp _NF)
+    #elif OPERATING_SYSTEM == 'M'
+      UNICODE_SEQ_MACOS(&kp _ND &kp _N8 &kp _N3 &kp _NC &kp _ND &kp _NF &kp _N1 &kp _NF)
+    #elif OPERATING_SYSTEM == 'W'
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _N3 &kp _N1 &kp _NF)
+    #endif
+  )
+  emoji_theme_awesome_shine: emoji_theme_awesome_shine {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_awesome_shine_macro>, <&emoji_theme_awesome_shine_macro>;
+    mods = <(~(
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_theme_awesome_shine
+COMPOSE_MORPH_MODS
+#else
+UNICODE_MORPH_MODS
+#endif
+))>;
+  };
+  emoji_theme_awesome: emoji_theme_awesome {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_sparkles>, <&emoji_theme_awesome_shine>;
+    mods = <MOD_LSFT>;
+  };
+  UNICODE(emoji_theme_magic_wand_macro, /* 🪄 */
+    #if OPERATING_SYSTEM == 'L'
+      UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _NA &kp _N8 &kp _N4)
+    #elif OPERATING_SYSTEM == 'M'
+      UNICODE_SEQ_MACOS(&kp _ND &kp _N8 &kp _N3 &kp _NE &kp _ND &kp _NE &kp _N8 &kp _N4)
+    #elif OPERATING_SYSTEM == 'W'
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _NA &kp _N8 &kp _N4)
+    #endif
+  )
+  emoji_theme_magic_wand: emoji_theme_magic_wand {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_magic_wand_macro>, <&emoji_theme_magic_wand_macro>;
+    mods = <(~(
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_theme_magic_wand
+COMPOSE_MORPH_MODS
+#else
+UNICODE_MORPH_MODS
+#endif
+))>;
+  };
+  UNICODE(emoji_theme_magic_wizard_macro, /* 🧙 */
+    #if OPERATING_SYSTEM == 'L'
+      UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _N9 &kp _ND &kp _N9)
+    #elif OPERATING_SYSTEM == 'M'
+      UNICODE_SEQ_MACOS(&kp _ND &kp _N8 &kp _N3 &kp _NE &kp _ND &kp _ND &kp _ND &kp _N9)
+    #elif OPERATING_SYSTEM == 'W'
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _N9 &kp _ND &kp _N9)
+    #endif
+  )
+  emoji_theme_magic_wizard: emoji_theme_magic_wizard {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_magic_wizard_macro>, <&emoji_theme_magic_wizard_macro>;
+    mods = <(~(
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_theme_magic_wizard
+COMPOSE_MORPH_MODS
+#else
+UNICODE_MORPH_MODS
+#endif
+))>;
+  };
+  emoji_theme_magic: emoji_theme_magic {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_magic_wand>, <&emoji_theme_magic_wizard>;
+    mods = <MOD_LSFT>;
+  };
+  emoji_theme_space: emoji_theme_space {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_rocket>, <&emoji_astronaut>;
+    mods = <MOD_LSFT>;
+  };
+  emoji_theme_science: emoji_theme_science {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_nerd>, <&emoji_lab_coat>;
+    mods = <MOD_LSFT>;
+  };
+  UNICODE(emoji_theme_strength_lifting_macro, /* 🏋️ */
+    #if OPERATING_SYSTEM == 'L'
+      UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _N3 &kp _NC &kp _NB), <&macro_wait_time UNICODE_SEQ_DELAY>, UNICODE_SEQ_LINUX(&kp _NF &kp _NE &kp _N0 &kp _NF)
+    #elif OPERATING_SYSTEM == 'M'
+      UNICODE_SEQ_MACOS(&kp _ND &kp _N8 &kp _N3 &kp _NC &kp _ND &kp _NF &kp _NC &kp _NB), <&macro_wait_time UNICODE_SEQ_DELAY>, UNICODE_SEQ_MACOS(&kp _NF &kp _NE &kp _N0 &kp _NF)
+    #elif OPERATING_SYSTEM == 'W'
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _N3 &kp _NC &kp _NB), <&macro_wait_time UNICODE_SEQ_DELAY>, UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NF &kp _NE &kp _N0 &kp _NF)
+    #endif
+  )
+  emoji_theme_strength_lifting: emoji_theme_strength_lifting {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_strength_lifting_macro>, <&emoji_theme_strength_lifting_macro>;
+    mods = <(~(
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_theme_strength_lifting
+COMPOSE_MORPH_MODS
+#else
+UNICODE_MORPH_MODS
+#endif
+))>;
+  };
+  emoji_theme_strength: emoji_theme_strength {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_muscle>, <&emoji_theme_strength_lifting>;
+    mods = <MOD_LSFT>;
+  };
+  UNICODE(emoji_theme_effort_juggle_macro, /* 🤹 */
+    #if OPERATING_SYSTEM == 'L'
+      UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _N9 &kp _N3 &kp _N9)
+    #elif OPERATING_SYSTEM == 'M'
+      UNICODE_SEQ_MACOS(&kp _ND &kp _N8 &kp _N3 &kp _NE &kp _ND &kp _ND &kp _N3 &kp _N9)
+    #elif OPERATING_SYSTEM == 'W'
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _N9 &kp _N3 &kp _N9)
+    #endif
+  )
+  emoji_theme_effort_juggle: emoji_theme_effort_juggle {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_effort_juggle_macro>, <&emoji_theme_effort_juggle_macro>;
+    mods = <(~(
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_theme_effort_juggle
+COMPOSE_MORPH_MODS
+#else
+UNICODE_MORPH_MODS
+#endif
+))>;
+  };
+  emoji_theme_effort: emoji_theme_effort {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_person_climbing>, <&emoji_theme_effort_juggle>;
+    mods = <MOD_LSFT>;
+  };
+  UNICODE(emoji_theme_nature_water_macro, /* 🌊 */
+    #if OPERATING_SYSTEM == 'L'
+      UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _N3 &kp _N0 &kp _NA)
+    #elif OPERATING_SYSTEM == 'M'
+      UNICODE_SEQ_MACOS(&kp _ND &kp _N8 &kp _N3 &kp _NC &kp _ND &kp _NF &kp _N0 &kp _NA)
+    #elif OPERATING_SYSTEM == 'W'
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _N3 &kp _N0 &kp _NA)
+    #endif
+  )
+  emoji_theme_nature_water: emoji_theme_nature_water {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_nature_water_macro>, <&emoji_theme_nature_water_macro>;
+    mods = <(~(
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_theme_nature_water
+COMPOSE_MORPH_MODS
+#else
+UNICODE_MORPH_MODS
+#endif
+))>;
+  };
+  emoji_theme_nature: emoji_theme_nature {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_fire>, <&emoji_theme_nature_water>;
+    mods = <MOD_LSFT>;
+  };
+  UNICODE(emoji_theme_love_heart_macro, /* ❤️ */
+    #if OPERATING_SYSTEM == 'L'
+      UNICODE_SEQ_LINUX(&kp _N2 &kp _N7 &kp _N6 &kp _N4), <&macro_wait_time UNICODE_SEQ_DELAY>, UNICODE_SEQ_LINUX(&kp _NF &kp _NE &kp _N0 &kp _NF)
+    #elif OPERATING_SYSTEM == 'M'
+      UNICODE_SEQ_MACOS(&kp _N2 &kp _N7 &kp _N6 &kp _N4), <&macro_wait_time UNICODE_SEQ_DELAY>, UNICODE_SEQ_MACOS(&kp _NF &kp _NE &kp _N0 &kp _NF)
+    #elif OPERATING_SYSTEM == 'W'
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N2 &kp _N7 &kp _N6 &kp _N4), <&macro_wait_time UNICODE_SEQ_DELAY>, UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NF &kp _NE &kp _N0 &kp _NF)
+    #endif
+  )
+  emoji_theme_love_heart: emoji_theme_love_heart {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_love_heart_macro>, <&emoji_theme_love_heart_macro>;
+    mods = <(~(
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_theme_love_heart
+COMPOSE_MORPH_MODS
+#else
+UNICODE_MORPH_MODS
+#endif
+))>;
+  };
+  UNICODE(emoji_theme_love_face_macro, /* 🥰 */
+    #if OPERATING_SYSTEM == 'L'
+      UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _N9 &kp _N7 &kp _N0)
+    #elif OPERATING_SYSTEM == 'M'
+      UNICODE_SEQ_MACOS(&kp _ND &kp _N8 &kp _N3 &kp _NE &kp _ND &kp _ND &kp _N7 &kp _N0)
+    #elif OPERATING_SYSTEM == 'W'
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _N9 &kp _N7 &kp _N0)
+    #endif
+  )
+  emoji_theme_love_face: emoji_theme_love_face {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_love_face_macro>, <&emoji_theme_love_face_macro>;
+    mods = <(~(
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_theme_love_face
+COMPOSE_MORPH_MODS
+#else
+UNICODE_MORPH_MODS
+#endif
+))>;
+  };
+  emoji_theme_love: emoji_theme_love {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_love_heart>, <&emoji_theme_love_face>;
+    mods = <MOD_LSFT>;
+  };
+  UNICODE(emoji_theme_party_face_macro, /* 🥳 */
+    #if OPERATING_SYSTEM == 'L'
+      UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _N9 &kp _N7 &kp _N3)
+    #elif OPERATING_SYSTEM == 'M'
+      UNICODE_SEQ_MACOS(&kp _ND &kp _N8 &kp _N3 &kp _NE &kp _ND &kp _ND &kp _N7 &kp _N3)
+    #elif OPERATING_SYSTEM == 'W'
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _N9 &kp _N7 &kp _N3)
+    #endif
+  )
+  emoji_theme_party_face: emoji_theme_party_face {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_party_face_macro>, <&emoji_theme_party_face_macro>;
+    mods = <(~(
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_theme_party_face
+COMPOSE_MORPH_MODS
+#else
+UNICODE_MORPH_MODS
+#endif
+))>;
+  };
+  emoji_theme_party: emoji_theme_party {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_tada>, <&emoji_theme_party_face>;
+    mods = <MOD_LSFT>;
+  };
+  UNICODE(emoji_theme_game_dart_macro, /* 🎯 */
+    #if OPERATING_SYSTEM == 'L'
+      UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _N3 &kp _NA &kp _NF)
+    #elif OPERATING_SYSTEM == 'M'
+      UNICODE_SEQ_MACOS(&kp _ND &kp _N8 &kp _N3 &kp _NC &kp _ND &kp _NF &kp _NA &kp _NF)
+    #elif OPERATING_SYSTEM == 'W'
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _N3 &kp _NA &kp _NF)
+    #endif
+  )
+  emoji_theme_game_dart: emoji_theme_game_dart {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_game_dart_macro>, <&emoji_theme_game_dart_macro>;
+    mods = <(~(
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_theme_game_dart
+COMPOSE_MORPH_MODS
+#else
+UNICODE_MORPH_MODS
+#endif
+))>;
+  };
+  UNICODE(emoji_theme_game_dice_macro, /* 🎲 */
+    #if OPERATING_SYSTEM == 'L'
+      UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _N3 &kp _NB &kp _N2)
+    #elif OPERATING_SYSTEM == 'M'
+      UNICODE_SEQ_MACOS(&kp _ND &kp _N8 &kp _N3 &kp _NC &kp _ND &kp _NF &kp _NB &kp _N2)
+    #elif OPERATING_SYSTEM == 'W'
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _N3 &kp _NB &kp _N2)
+    #endif
+  )
+  emoji_theme_game_dice: emoji_theme_game_dice {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_game_dice_macro>, <&emoji_theme_game_dice_macro>;
+    mods = <(~(
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_theme_game_dice
+COMPOSE_MORPH_MODS
+#else
+UNICODE_MORPH_MODS
+#endif
+))>;
+  };
+  emoji_theme_game: emoji_theme_game {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_game_dart>, <&emoji_theme_game_dice>;
+    mods = <MOD_LSFT>;
+  };
+  UNICODE(emoji_theme_trend_up_macro, /* 📈 */
+    #if OPERATING_SYSTEM == 'L'
+      UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _N4 &kp _NC &kp _N8)
+    #elif OPERATING_SYSTEM == 'M'
+      UNICODE_SEQ_MACOS(&kp _ND &kp _N8 &kp _N3 &kp _ND &kp _ND &kp _NC &kp _NC &kp _N8)
+    #elif OPERATING_SYSTEM == 'W'
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _N4 &kp _NC &kp _N8)
+    #endif
+  )
+  emoji_theme_trend_up: emoji_theme_trend_up {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_trend_up_macro>, <&emoji_theme_trend_up_macro>;
+    mods = <(~(
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_theme_trend_up
+COMPOSE_MORPH_MODS
+#else
+UNICODE_MORPH_MODS
+#endif
+))>;
+  };
+  UNICODE(emoji_theme_trend_down_macro, /* 📉 */
+    #if OPERATING_SYSTEM == 'L'
+      UNICODE_SEQ_LINUX(&kp _N1 &kp _NF &kp _N4 &kp _NC &kp _N9)
+    #elif OPERATING_SYSTEM == 'M'
+      UNICODE_SEQ_MACOS(&kp _ND &kp _N8 &kp _N3 &kp _ND &kp _ND &kp _NC &kp _NC &kp _N9)
+    #elif OPERATING_SYSTEM == 'W'
+      UNICODE_SEQ_WINDOWS(&kp _N0 &kp _N1 &kp _NF &kp _N4 &kp _NC &kp _N9)
+    #endif
+  )
+  emoji_theme_trend_down: emoji_theme_trend_down {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_trend_down_macro>, <&emoji_theme_trend_down_macro>;
+    mods = <(~(
+#ifdef WORLD_USE_COMPOSE_FOR_emoji_theme_trend_down
+COMPOSE_MORPH_MODS
+#else
+UNICODE_MORPH_MODS
+#endif
+))>;
+  };
+  emoji_theme_trend: emoji_theme_trend {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&emoji_theme_trend_up>, <&emoji_theme_trend_down>;
+    mods = <MOD_LSFT>;
+  };
 };
 /*HACK*/};
 #if EMOJI_GENDER_SIGN_PRESET == 'N'
@@ -10060,15 +10330,14 @@ UNICODE_MORPH_MODS
     };
     #endif
   };
-/*// FIXME: remove this (conflicts with definition in updated pr36)
   //
   // Scaling for mouse scrolling, based on @caksoylar's example:
-  https://github.com/caksoylar/zmk-config/commit/e35ee2f08788927683df7bbdd7fc73434473886e
+  // https://github.com/caksoylar/zmk-config/commit/e35ee2f08788927683df7bbdd7fc73434473886e
   //
   #include <zephyr/dt-bindings/input/input-event-codes.h>
   / {
     input_processors {
-      zip_scroll_scaler: zip_scroll_scaler {
+      zip_scroll_scaling_processor: zip_scroll_scaling_processor {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
         type = <INPUT_EV_REL>;
@@ -10077,24 +10346,23 @@ UNICODE_MORPH_MODS
       };
     };
   };
-*/// FIXME
   &msc_input_listener {
     #ifdef LAYER_MouseSlow
     slow {
       layers = <LAYER_MouseSlow>;
-      input-processors = <&zip_scroll_scaler MOUSE_SCALER_SLOW>;
+      input-processors = <&zip_scroll_scaling_processor MOUSE_SCALER_SLOW>;
     };
     #endif
     #ifdef LAYER_MouseFast
     fast {
       layers = <LAYER_MouseFast>;
-      input-processors = <&zip_scroll_scaler MOUSE_SCALER_FAST>;
+      input-processors = <&zip_scroll_scaling_processor MOUSE_SCALER_FAST>;
     };
     #endif
     #ifdef LAYER_MouseWarp
     warp {
       layers = <LAYER_MouseWarp>;
-      input-processors = <&zip_scroll_scaler MOUSE_SCALER_WARP>;
+      input-processors = <&zip_scroll_scaling_processor MOUSE_SCALER_WARP>;
     };
     #endif
   };
@@ -10121,4 +10389,3 @@ UNICODE_MORPH_MODS
   #define SCRL_RIGHT
 #endif
 /*HACK*//{
-//
