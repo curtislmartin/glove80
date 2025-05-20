@@ -1,0 +1,12 @@
+[{g:true,p:"CHICKLET",a:7},"F1","F2","F3","F4","F5",{x:7,t:"#EEEEEE"},"Reset",{t:"#000000"},"F7","F8","F9",{t:"#EEEEEE"},"Boot loader"],
+[{t:"#000000",a:5},"|\n\\","!\n1","@\n2","#\n3","$\n4","%\n5",{g:false,a:4,f:4,w:5,h:4,d:true},"<center><h2>System Layer</h2><p>MoErgo Glove80 keyboard</p><ul><li><a href='https://github.com/manna-harbour/miryoku'>Miryoku</a> layers & home row mods</li><li><a href='https://github.com/sunaku/glove80-keymaps'>Glorious Engrammer</a> keymap</li><li>See <a href='https://is.gd/sunaku_glove80'>is.gd/sunaku_glove80</a></li></ul></center>",{g:true,a:5,f:3},"^\n6",{g:true,p:"CHICKLET",a:7},"","","","",{g:true,p:"CHICKLET",a:5},"+\n="],
+
+
+["~\n`",{a:7},"B",{c:"#ffecb3",g:false},"Effect ➖","Effect ➕","RGB toggle",{c:"#c5cae9"},"Pause break",{x:5},"Pause break",{g:false,p:"SPACE",a:7},"Shift <small>(sticky)</small>\n\n\n\nShift","Ctrl <small>(sticky)</small>\n\n\n\nCtrl","Alt <small>(sticky)</small>\n\n\n\nAlt","Win <small>(sticky)</small>\n\n\n\nWin",{c:"#cccccc",g:true,p:"CHICKLET",a:5},"+\n="],
+
+[{a:7},"U",{c:"#FFCDD2",g:false},"Speed ➕",{c:"#ffccbc"},"Hue ➕",{c:"#dcedc8"},"Sat ➕",{c:"#bbdefb"},"Bright ➕",{c:"#c5cae9"},"Print screen",{x:5},"Print screen",{c:"#c5cae9",n:true},"Scroll lock","Num lock","Caps lock",{c:"#ffecb3"},"RGB toggle",{c:"#ffecb3"},"Effect ➕"],
+
+[{c:"#cccccc",g:true},"Shift",{c:"#FFCDD2",g:false},"Speed ➖",{c:"#ffccbc"},"Hue ➖",{c:"#dcedc8"},"Sat ➖",{c:"#bbdefb"},"Bright ➖",{c:"#c5cae9"},"<small>Context</small> menu",{x:5},"<small>Context</small> menu",{c:"#bbdefb"},"Bright ➕",{c:"#dcedc8"},"Sat ➕",{c:"#ffccbc"},"Hue ➕",{c:"#FFCDD2"},"Speed ➕",{c:"#ffecb3"},"Effect ➖"],
+[{y:-0.05,x:6.95,c:"#ffecb3",g:true,p:"FLAT",f:2,w:1.1,h:2.7,d:true},""],
+[{y:-0.95,c:"#cccccc",t:"#EEEEEE",p:"CHICKLET",f:3},"Magic",{t:"#000000"},"Home","Page up","Page down",{c:"#0277bd",t:"#FAFAFA",g:false,p:"SPACE"},"Linux Magic SysRq\n\n\n\n<sup>Base Layer</sup>",{c:"#e1bee7",t:"#000000",p:"CHICKLET"},"Lock screen","Sleep","Power",{x:1,c:"#cccccc",t:"#EEEEEE",g:true},"",{c:"#cccccc",t:"#000000",g:true,fa:[9]},"&rArr;",{c:"#ffff8d",g:false,p:"SPACE",n:true},"<img src=\"https://openclipart.org/download/278214/fingerprint.svg\" width=\"36\" height=\"36\" />\n\n\n\nLayer",{c:"#bbdefb",p:"CHICKLET",f:3},"Bright ➖",{c:"#dcedc8",f:3},"Sat ➖",{f:3, c:"#ffccbc"},"Hue ➖",{c:"#FFCDD2",f:3},"Speed ➖",{c:"#cccccc",g:true,a:5,f:3},"?\n/"],
+[{x:5,c:"#c5cae9",g:false,a:7,f:3},"Scroll lock",{f:3},"Num lock",{f:3},"Caps lock",{x:1,c:"#e1bee7",g:false,f:3},"Lock screen",{f:3},"Sleep",{f:3},"Power"]
