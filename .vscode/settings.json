@@ -1,0 +1,43 @@
+{
+  "editor.fontSize": 18,
+  "editor.cursorWidth": 5,
+  "window.title": "${dirty} ${activeEditorMedium}${separator}${rootName}",
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
+  "editor.autoIndent": "full",
+  "workbench.tree.indent": 20,
+  "workbench.editor.tabSizing":"shrink",
+  "editor.renderWhitespace": "trailing",
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.enabled": false,
+  "window.zoomLevel": -1,
+  "editor.scrollbar.verticalScrollbarSize": 50,
+  "editor.quickSuggestionsDelay": 30,
+  "editor.tabSize":2,
+  "editor.suggestFontSize": 20,
+  "editor.suggestLineHeight": 30,
+  "editor.wordWrap":"on",
+  "editor.cursorBlinking": "solid",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.minimap.showSlider": "always",
+  "files.trimTrailingWhitespace": true,
+  "window.closeWhenEmpty": true,
+  "editor.detectIndentation": false,
+  "files.insertFinalNewline": true,
+  "editor.showFoldingControls": "always",
+  "editor.matchBrackets": "always",
+  "workbench.editor.enablePreview": true,
+  "editor.useTabStops": true,
+  "editor.formatOnPaste": false
+
+  // "editor.rulers":[
+  //   80,
+  //   100
+  // ]
+}

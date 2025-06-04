@@ -12,13 +12,23 @@ R
 5
 6
 
+C 1 2 3 4 5 6
+L
+1
+2
+3
+4
+5
+6
+
 
 Cursor layer
-T1 = &mod_tab _A_TAB
-T2 = &window_switcher
-T5 = &mod_tab LCTL
+LC3R6 & RC2R2  = &window_switcher
+LC1R2 & RC3R2   = &mod_tab LCTL
 
 Function layer
-T2 = &close_tab
-T6 = &quit_app
-C1R2 = &open_finder
+LC1R6 & RC5R1 = &close_tab
+LC1R5 & RC4R1 = &quit_app
+L and R C1R2 = &open_finder
+
+Removed = &mod_tab _A_TAB (Obsolete)
