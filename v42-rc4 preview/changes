@@ -1,0 +1,81 @@
+ i inverted the scroll up/down and left/right so it has a better vibe
+
+
+ - and / are swapped
+Updated #define MOUSE_SCALER_WARP to 16 1 from #define MOUSE_SCALER_WARP to 12 1
+
+
+Need to learn
+left
+T1+T4 = shift (hold for continuous tap for 1)
+T1+T5 = caps lock (this)
+t4+t5 = caps word
+T2+T5 = last program switcher
+t5 t6 = tab switch
+t3 t6 = raycast
+
+
+new positions
+c6r2 both will be window_switcher
+c2r1 close tab
+c4r1 quit app
+
+Existing position (EP)
+
+To add
+&window_switcher (EP= Cursor RC6R2)
+&close_tab (EP= Function LC1R5)
+&quit_app (EP= Function LC1R6)
+
+
+layer options are
+- system
+    L6 C1-5
+- cursor
+    R2 C5-2d
+- Base layer (best option)
+    LC6R2&3
+    RC6R2&3
+
+    close
+    quit_ap
+
+    tab
+    window_switcher
+
+    close
+    c5r1 tab
+    c6r1 app
+
+    switch
+    c2r1 tab
+    c2r2 window
+
+
+
+ii]
+
+
+
+Left
+T 1  2  3
+T 4  5  6
+
+
+C 6 5 4 3 2 1
+L
+1
+2
+3
+4
+5
+6 x
+
+C 1 2 3 4 5 6
+R
+1
+2
+3
+4
+5
+6          x
